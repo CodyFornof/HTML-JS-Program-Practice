@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Loading...</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        #container {
+            height: 90vh;
+            width: 90vw;
+            background-color: #333333;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+        #bar {
+            height: 6vh;
+            width: 35vw;
+            background-color: white;
+        }
+        #progress {
+            height: 6vh;
+            width: 1%;
+            background-color: dodgerblue;
+        }
+        #text {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5vw;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <p id="text"></p>
+        <div id="bar">
+            <div id="progress">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let width = 1;
+
+        let progressBar = document.getElementById('progress')
+
+        function load() {
+
+            if(width < 100){
+                width++;
+                progressBar.style.width = width + '%';
+                document.getElementById('text').innerHTML = width + "%"
+            }else if(width >= 100){
+                let width = 100;
+                clearTimeout(loadingTime);
+            }
+
+        }
+            let loadingTime = setInterval(load, 50);
+
+    </script>
+  </body>
+</html>
