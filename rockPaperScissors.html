@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Rock Paper Scissors</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.freeiconspng.com/thumbs/load-icon-png/loading-icon-3.png"/>
+    <style>
+
+    #container {
+        height: 95vh;
+        width: 95vw;
+        background-color: #333;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    #row {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    #rock {
+        font-size: 3vw;
+        font-weight: bold;
+        margin: 6%;
+        color: #9FE2BF;
+        cursor: pointer;
+        font-family: arial;
+        user-select: none;
+        transition: 0.8s;
+    }
+    #rock:hover {
+        color: #CCCCFF
+    }
+    #paper {
+        font-size: 3vw;
+        font-weight: bold;
+        margin: 6%;
+        color: #40E0D0;
+        cursor: pointer;
+        font-family: arial;
+        user-select: none;
+        transition: 0.8s;
+    }
+    #paper:hover {
+        color: #CCCCFF
+    }
+    #scissors {
+        font-size: 3vw;
+        font-weight: bold;
+        margin: 6%;
+        color: #6495ED;
+        cursor: pointer;
+        font-family: arial;
+        user-select: none;
+        transition: 0.8s;
+    }
+    #scissors:hover {
+        color: #CCCCFF
+    }
+    #opponent {
+        font-size: 2vw;
+        font-weight: bold;
+        color: white;
+        cursor: default;
+        font-family: arial;
+    }
+    #outcome {
+        font-size: 2vw;
+        font-weight: bold;
+        color: white;
+        cursor: default;
+        font-family: arial;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <p id="outcome"></p>
+        <p id="opponent"></p>
+        <div id="row">
+            <p id="rock" onclick="rock()">Rock</p>
+            <p id="paper" onclick="paper()">Paper</p>
+            <p id="scissors" onclick="scissors()">Scissors</p>
+        </div>
+    </div>
+  </body>
+</html>
+
+<script>
+
+let opponent = document.getElementById('opponent');
+
+let outcome = document.getElementById('outcome');
+
+let answerName;
+
+rock = () => {
+
+    let answer = Math.floor(Math.random() * 100);
+
+    if(answer > 50){
+
+        answerName = 'Paper'
+        outcome.innerHTML = 'Defeat'
+        document.getElementById('outcome').style.color = '#E74C3C'
+
+    }else if(answer < 50){
+
+        answerName = 'Scissors'
+        outcome.innerHTML = 'Victory!'
+        document.getElementById('outcome').style.color = '#00FF1B'
+
+    }
+
+    opponent.innerHTML = answerName;
+
+}
+
+paper = () => {
+
+let answer = Math.floor(Math.random() * 100);
+
+if(answer > 50){
+
+    answerName = 'Rock'
+    outcome.innerHTML = 'Victory!'
+    document.getElementById('outcome').style.color = '#00FF1B'
+
+}else if(answer < 50){
+
+    answerName = 'Scissors'
+    outcome.innerHTML = 'Defeat'
+    document.getElementById('outcome').style.color = '#E74C3C'
+
+}
+
+opponent.innerHTML = answerName;
+
+}
+
+scissors = () => {
+
+let answer = Math.floor(Math.random() * 100);
+
+if(answer > 50){
+
+    answerName = 'Rock'
+    outcome.innerHTML = 'Defeat'
+    document.getElementById('outcome').style.color = '#E74C3C'
+
+}else if(answer < 50){
+
+    answerName = 'Paper'
+    outcome.innerHTML = 'Victory!'
+    document.getElementById('outcome').style.color = '#00FF1B'
+
+}
+
+opponent.innerHTML = answerName;
+
+}
+
+</script>
