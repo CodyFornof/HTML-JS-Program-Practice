@@ -25,12 +25,20 @@
             align-items: center;
             margin: auto;
         }
+        p {
+            color: white;
+            font-size: 1.5vw;
+            font-weight: bold;
+            cursor: default;
+        }
     </style>
   </head>
   <body>
     <div id="container">
-        <input id="input">
-        <button type="button" id='button' onclick="btn()"></button>
+        <form id="form">
+            <input id="input">
+            <button type="button" onclick="btn()">Add</button>
+        </form>
         <div id="list">
 
         </div>
@@ -38,17 +46,27 @@
 
     <script>
 
-        btn = () => {
+        function btn() {
 
             let value = document.getElementById('input').value;
 
-            let item = document.createElement('p');
-
             let text = document.createTextNode(value)
 
-            item.appenChild(text)
+            let createdDiv = document.createElement('div');
+            createdDiv.id = 'row';
+
+            let createdInput = document.createElement('input');
+            createdInput
+
+            let createdP = document.createElement('p');
+
+            let item = document.createElement('p');
+
+            item.appendChild(text)
 
             document.getElementById('list').appendChild(item)
+
+            document.getElementById('input').value = "";
 
         }
 
