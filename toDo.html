@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>To-Do</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        #container {
+            height: 90vh;
+            width: 90vw;
+            background-color: #333333;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <input id="input">
+        <button type="button" id='button' onclick="btn()"></button>
+        <div id="list">
+
+        </div>
+    </div>
+
+    <script>
+
+        btn = () => {
+
+            let value = document.getElementById('input').value;
+
+            let item = document.createElement('p');
+
+            let text = document.createTextNode(value)
+
+            item.appenChild(text)
+
+            document.getElementById('list').appendChild(item)
+
+        }
+
+        
+
+    </script>
+  </body>
+</html>
