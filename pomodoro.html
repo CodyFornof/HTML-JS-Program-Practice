@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Pomodoro</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        #container {
+            height: 90vh;
+            width: 90vw;
+            background-color: #333333;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+       <p id="timer">25:00</p>
+       <button id="buttonWork" onclick="btn()">Start Working</button>
+       <button id="buttonBreak" onclick = "btnBreak()">Start Break</button>
+    </div>
+
+    <script>
+
+       let minutes = 25;
+
+       let seconds = 0;
+
+       let session = 'work'
+
+       let time = document.getElementById('timer');
+
+       btn = () => {
+            
+            document.getElementById('buttonWork').style.display = "none";
+            document.getElementById('buttonBreak').style.display = "none";
+
+            if(seconds > 0){
+                seconds--;
+                time.innerHTML = minutes + ":" + seconds;
+            }else if(seconds <= 0){
+                minutes--;
+                seconds = 59;
+                time.innerHTML = minutes + ":" + seconds;
+            }else if(minutes <= 0 && seconds <= 0){
+                document.getElementById('buttonBreak').style.display = "block";
+                clearInterval(i);
+
+                minutes = 0;
+                seconds = 0;
+            }
+
+            var i=setInterval(btn,500); 
+
+       }
+
+       btnBreak = () => {
+
+        document.getElementById('buttonWork').style.display = "none";
+        document.getElementById('buttonBreak').style.display = "none";
+
+        minutes = 5;
+
+        seconds = 0;
+
+        if(seconds > 0){
+                seconds--;
+                time.innerHTML = minutes + ":" + seconds;
+            }else if(seconds <= 0){
+                minutes--;
+                seconds === 59;
+                time.innerHTML = minutes + ":" + seconds;
+            }else if(minutes === 0 && seconds <= 0){
+                document.getElementById('buttonWork').style.display = "block";
+                clearInterval(t);
+            }
+
+            var t=setInterval(btnBreak,250);
+
+       }
+
+
+    </script>
+  </body>
+</html>
