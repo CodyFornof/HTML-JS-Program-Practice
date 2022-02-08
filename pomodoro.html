@@ -49,6 +49,8 @@
             document.getElementById('buttonWork').style.display = "none";
             document.getElementById('buttonBreak').style.display = "none";
 
+          count = () => {
+
             if(seconds > 0){
                 seconds--;
                 time.innerHTML = minutes + ":" + seconds;
@@ -56,15 +58,20 @@
                 minutes--;
                 seconds = 59;
                 time.innerHTML = minutes + ":" + seconds;
-            }else if(minutes <= 0 && seconds <= 0){
+            }else if(minutes <= 0){
                 document.getElementById('buttonBreak').style.display = "block";
                 clearInterval(i);
 
-                minutes = 0;
-                seconds = 0;
+                minutes === 0;
+                seconds === 0;
             }
+            if(seconds < 10){
+                  seconds = "0" + seconds;
+                }
 
-            var i=setInterval(btn,500); 
+          }  
+
+            var i=setInterval(count,25); 
 
        }
 
