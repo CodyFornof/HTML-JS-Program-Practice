@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Book Calulcator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        #container {
+            height: 95vh;
+            width: 90vw;
+            background-color: #333333;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+        input {
+            height: 6vh;
+            width: 6vw;
+            font-size: 1.8vw;
+            font-weight: bold;
+            text-align: center;
+        }
+        p {
+            color: white;
+            font-weight: bold;
+            font-size: 1.5vw;
+            cursor: default;
+        }
+        button{
+            height: 6vh;
+            width: 10vw;
+            background-color: white;
+            color: #333333;
+            font-size: 1.8vw;
+            font-weight: bold;
+            border:none;
+            transition: 2s;
+        }
+        button:hover {
+            background-color:black;
+            color: white;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <p id="text">How many pages?</p>
+       <input type="number" id="input">
+       <p id="text">How many days to read?</p>
+       <input type="number" id="inputTwo">
+       <button id="button" onclick="btn()">Enter</button>
+       <p id="output">You must to read () pages a day</p>
+
+    </div>
+
+    <script>
+
+        let pagesCount = document.getElementById('input')
+
+        let pagesCountNum = pagesCount * 1;
+
+        let dayCount = document.getElementById('inputTwo')
+
+        let dayCountNum = dayCount * 1;
+
+        let output = document.getElementById('output')
+
+        let answer;
+
+        btn = () => {
+
+            answer = pagesCount.value / dayCount.value;
+
+            output.innerHTML = 'You must to read ' + answer + ' pages a day';
+
+        }
+
+    </script>
+  </body>
+</html>
