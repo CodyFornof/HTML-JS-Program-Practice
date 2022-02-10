@@ -25,6 +25,30 @@
             align-items: center;
             margin: auto;
         }
+        #timer {
+          color: white;
+          font-size: 3vw;
+          font-weight: bold;
+          font-family: Arial, Helvetica, sans-serifl;
+        }
+        button {
+          height: 8vh;
+          width: 20vw;
+          margin: 2%;
+          background-color: #f0f6fc; 
+          border-radius: 0.8vw;
+          border-color: #333333;
+          box-shadow: 2px 2px 2px black;
+          font-size: 1.8vw;
+          font-weight: bold;
+          color: #333333;
+          font-family: arial;
+          transition: 1s;
+        }
+        button:hover {
+          background-color: #333333;
+          color: #f0f6fc;
+        }
     </style>
   </head>
   <body>
@@ -36,15 +60,17 @@
 
     <script>
 
-       let minutes = 25;
+      let minutes = 25;
 
-       let seconds = 0;
+      let seconds = 0;
 
-       let session = 'work'
+      let zero = '0'; 
 
-       let time = document.getElementById('timer');
+      let session = 'work'
 
-       btn = () => {
+      let time = document.getElementById('timer');
+
+      btn = () => {
             
             document.getElementById('buttonWork').style.display = "none";
             document.getElementById('buttonBreak').style.display = "none";
@@ -62,11 +88,21 @@
                 seconds = 59;
                 time.innerHTML = minutes + ":" + seconds;
             }
+
+            if(minutes < 10 && seconds < 10){
+              time.innerHTML = zero + minutes + ":" + zero + seconds;
+            }else if(minutes < 10){
+              time.innerHTML = zero + minutes + ":" + seconds;
+            }else if(seconds < 10){
+              time.innerHTML = minutes + ":" + zero + seconds;
+            }else{
+              time.innerHTML = minutes + ":" + seconds;
+            }
             
             if(minutes < 0){
               minutes = 0;
               seconds = 0;
-              time.innerHTML = minutes + ":" + seconds;
+              time.innerHTML = zero + minutes + ":" + zero + seconds;
 
                 document.getElementById('buttonWork').style.display = "block";
                 document.getElementById('buttonBreak').style.display = "block";
@@ -76,7 +112,7 @@
 
           }  
 
-            var i=setInterval(count,10); 
+            var i=setInterval(count,1000); 
 
        } 
 
@@ -87,7 +123,7 @@
 
         minutes = 5;
         seconds = 0;
-        time.innerHTML = minutes + ":" + seconds;
+        time.innerHTML = zero + minutes + ":" + zero + seconds;
 
         countBreak = () => {
 
@@ -101,6 +137,16 @@
             time.innerHTML = minutes + ":" + seconds;
         }
         
+        if(minutes < 10 && seconds < 10){
+            time.innerHTML = zero + minutes + ":" + zero + seconds;
+          }else if(minutes < 10){
+            time.innerHTML = zero + minutes + ":" + seconds;
+          }else if(seconds < 10){
+            time.innerHTML = minutes + ":" + zero + seconds;
+          }else{
+            time.innerHTML = minutes + ":" + seconds;
+          }
+
         if(minutes < 0){
             minutes = 00;
             seconds = 00;
@@ -114,7 +160,7 @@
 
         }
 
-            var t=setInterval(countBreak,100);
+            var t=setInterval(countBreak,1000);
 
        }
 
