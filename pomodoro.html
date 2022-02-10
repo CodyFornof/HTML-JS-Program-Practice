@@ -18,7 +18,7 @@
         #container {
             height: 90vh;
             width: 90vw;
-            background-color: #333333;
+            background-color: #333333; 
             display:flex;
             flex-direction: column;
             justify-content: center;
@@ -49,6 +49,9 @@
             document.getElementById('buttonWork').style.display = "none";
             document.getElementById('buttonBreak').style.display = "none";
 
+            minutes = 25;
+            seconds = 0;
+
           count = () => {
 
             if(seconds > 0){
@@ -58,22 +61,24 @@
                 minutes--;
                 seconds = 59;
                 time.innerHTML = minutes + ":" + seconds;
-            }else if(minutes <= 0){
+            }
+            
+            if(minutes < 0){
+              minutes = 0;
+              seconds = 0;
+              time.innerHTML = minutes + ":" + seconds;
+
+                document.getElementById('buttonWork').style.display = "block";
                 document.getElementById('buttonBreak').style.display = "block";
                 clearInterval(i);
 
-                minutes === 0;
-                seconds === 0;
             }
-            if(seconds < 10){
-                  seconds = "0" + seconds;
-                }
 
           }  
 
-            var i=setInterval(count,25); 
+            var i=setInterval(count,10); 
 
-       }
+       } 
 
        btnBreak = () => {
 
@@ -81,22 +86,35 @@
         document.getElementById('buttonBreak').style.display = "none";
 
         minutes = 5;
-
         seconds = 0;
+        time.innerHTML = minutes + ":" + seconds;
+
+        countBreak = () => {
 
         if(seconds > 0){
-                seconds--;
-                time.innerHTML = minutes + ":" + seconds;
-            }else if(seconds <= 0){
-                minutes--;
-                seconds === 59;
-                time.innerHTML = minutes + ":" + seconds;
-            }else if(minutes === 0 && seconds <= 0){
-                document.getElementById('buttonWork').style.display = "block";
-                clearInterval(t);
-            }
+            seconds--;
+            time.innerHTML = minutes + ":" + seconds;
+        }else if(seconds <= 0){
+            minutes--;
+            seconds = 59;
 
-            var t=setInterval(btnBreak,250);
+            time.innerHTML = minutes + ":" + seconds;
+        }
+        
+        if(minutes < 0){
+            minutes = 00;
+            seconds = 00;
+            time.innerHTML = minutes + ":" + seconds;
+
+            document.getElementById('buttonWork').style.display = "block";
+            document.getElementById('buttonBreak').style.display = "block";
+            clearInterval(t);
+
+        }
+
+        }
+
+            var t=setInterval(countBreak,100);
 
        }
 
