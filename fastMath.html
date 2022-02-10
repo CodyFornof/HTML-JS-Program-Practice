@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Fast Math</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        #container {
+            height: 90vh;
+            width: 90vw;
+            background-color: #333333; 
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+        #column {
+            display: flex;
+            flex-direction: column;
+        }
+        #row {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+        #questionContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            width: 10vw;
+            margin: auto;
+        }
+        .questionNumber {
+            color: white;
+            font-weight: bold;
+            font-size: 2.2vw;
+        }
+        #numberContainer {
+            display: flex;
+            flex-direction: column;
+            height: 45vh;
+            width: 30vw;
+            margin: auto;
+        }
+        #button {
+            background-color: #333333;
+            color: white;
+            text-decoration: underline;
+            width: 3.5vw;
+            height: 10vh;
+            font-weight: bold;
+            font-size: 2.5vw;
+            border: none;
+            margin: auto;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        #button:hover {
+            color: #00D4FF;
+        }
+        #numberHolder {
+            color: white;
+            font-family: arial;
+            margin: auto;
+            font-size: 4vw;
+        }
+        #timer {
+            color: white;
+            font-size: 1.5vw;
+            font-weight: bold;
+            color: white;
+            margin: auto;
+        }
+        #correctAmount {
+            color: white;
+            font-size: 1.5vw;
+            font-weight: bold;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+
+        <br>
+        <div id="column">
+            <p id="timer"></p>
+            <p id="correctAmount">Correct:</p>
+        </div>
+        <div id="questionContainer">
+
+            <p class="questionNumber" id="firstNumber">356</p>
+            <div id="row" style="height: 3vh;">
+                <p class="questionNumber" id="symbol">-</p>
+                <p class="questionNumber" id="secondNumber">85</p>
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <p id="numberHolder">0</p>
+
+        <div id="numberContainer">
+            <div id="row" style="width: 30vw">
+                <button id="button" onclick="one()">1</button>
+                <button id="button" onclick="two()">2</button>
+                <button id="button" onclick="three()">3</button>
+            </div>
+            <div id="row" style="width: 30vw">
+                <button id="button" onclick="four()">4</button>
+                <button id="button" onclick="five()">5</button>
+                <button id="button" onclick="six()">6</button>
+            </div>
+            <div id="row" style="width: 30vw">
+                <button id="button" onclick="seven()">7</button>
+                <button id="button" onclick="eight()">8</button>
+                <button id="button" onclick="nine()">9</button>
+            </div>
+            <div id="row" style="width: 30vw">
+                <button id="button" onclick="back()">C</button>
+                <button id="button" onclick="zero()">0</button>
+                <button id="button" onclick="submit()">E</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        //get element for the two numbers
+
+        let numberOne = document.getElementById('firstNumber');
+
+        let numberTwo = document.getElementById('secondNumber');
+
+        let numberHolder = document.getElementById('numberHolder')
+
+        //get element for symbol
+
+        let symbolShow = document.getElementById('symbol');
+
+        // declare number 1 = 329
+        // declare symbol = minus
+        // declare number 2 = 81
+        // declare answer = 248
+
+        let numOne = 329;
+        let numTwo = 81;
+        let symbol = '-';
+
+        let correctAnswer = 248;
+
+        let answer = '';
+
+        //InnerHTML above ^^^
+
+        numberOne.innerHTML = numOne;
+        numberTwo.innerHTML = numTwo;
+
+        symbolShow.innerHTML = symbol
+
+        let scoreShow = document.getElementById('correctAmount');
+
+        let score = 0;
+
+        const possibleSymbols = ['+', '-', '*'];
+
+        let randomIndex;
+        
+        // get element for clock
+        // get var for clock
+        // get function for running clock
+
+        let time = document.getElementById('timer')
+        let seconds = 60;
+
+        timeCounter = () => {
+            if(seconds > 0){
+                seconds--;
+                time.innerHTML = ":" + seconds;
+            }else {
+                seconds = 0;
+                clearInterval(t);
+              
+                time.style.display = "none"
+                scoreShow.style.display = "none"
+                numberHolder.style.display = "none"
+                symbolShow.style.display ="none"
+                document.getElementById('numberContainer').style.display ="none"
+
+                numberOne.style.fontSize = "2vw"
+                numberTwo.style.fontSize = "2vw"
+
+                numberOne.innerHTML = 'Times Up!';
+                numberTwo.innerHTML = "Correct: " + score;
+            }
+        }
+
+        var t=setInterval(timeCounter,1000);
+
+        //Create all number button functions
+
+        one = () => {
+            answer += 1
+            numberHolder.innerHTML = answer
+        }
+        two = () => {
+            answer += 2
+            numberHolder.innerHTML = answer
+        }
+        three = () => {
+            answer += 3
+            numberHolder.innerHTML = answer
+        }
+        four = () => {
+            answer += 4
+            numberHolder.innerHTML = answer
+        }
+        five = () => {
+            answer += 5
+            numberHolder.innerHTML = answer
+        }
+        six = () => {
+            answer += 6
+            numberHolder.innerHTML = answer
+        }
+        seven = () => {
+            answer += 7
+            numberHolder.innerHTML = answer
+        }
+        eight = () => {
+            answer += 8
+            numberHolder.innerHTML = answer
+        }
+        nine = () => {
+            answer += 9
+            numberHolder.innerHTML = answer
+        }
+        zero = () => {
+            answer += 0
+            numberHolder.innerHTML = answer
+        }
+
+        submit = () => {
+            if(answer == correctAnswer){ 
+
+                back();
+
+                randomIndex = Math.floor(Math.random() * 2);
+                symbol = possibleSymbols[randomIndex];
+
+                if(symbol = '+'){
+                    numOne = Math.floor(Math.random() * 10000);
+                    numTwo = Math.floor(Math.random() * 10000);
+
+                    correctAnswer = numOne + numTwo;
+                }else if(symbol='-'){
+                    numOne = Math.floor(Math.random() * 500) + 500
+                    numTwo = Math.floor(Math.random() * 500)
+
+                    correctAnswer = numOne - numTwo;
+                }else{
+                    symbol = '*';
+                    numOne = Math.floor(Math.random() * 40)
+                    numTwo = Math.floor(Math.random() * 40)
+
+                    correctAnswer = numOne * numTwo;
+                }
+
+                numberOne.innerHTML = numOne;
+                numberTwo.innerHTML = numTwo;
+                symbolShow.innerHTML = symbol
+
+                score++;
+                scoreShow.innerHTML = 'Correct: ' + score;
+
+            }else {
+                document.getElementById('numberHolder').style.color = '#FF0000'
+            }
+        }
+
+        back = () => {
+            answer = '';
+            document.getElementById('numberHolder').style.color = 'white'
+            numberHolder.innerHTML = answer;
+        }
+
+    </script>
+  </body>
+</html>
