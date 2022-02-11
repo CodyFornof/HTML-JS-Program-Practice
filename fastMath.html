@@ -91,6 +91,22 @@
             font-size: 1.5vw;
             font-weight: bold;
         }
+        #refreshButton {
+            height: 15vh;
+            width: 20vw;
+            background-color: #333;
+            color: white;
+            border: white solid 3px;
+            font-weight: bold;
+            font-size: 1.8vw;
+            display: none;
+            margin: auto;
+            transition: 0.6s;
+        }
+        #refreshButton:hover {
+            background-color: white;
+            color: #333;
+        }
     </style>
   </head>
   <body>
@@ -136,6 +152,7 @@
                 <button id="button" onclick="submit()">E</button>
             </div>
         </div>
+        <button id="refreshButton" onClick="window.location.reload();">Try again</button>
     </div>
 
     <script>
@@ -180,12 +197,14 @@
 
         let randomIndex;
         
+        let refresh = document.getElementById('refreshButton');
+
         // get element for clock
         // get var for clock
         // get function for running clock
 
         let time = document.getElementById('timer')
-        let seconds = 60;
+        let seconds = 10;
 
         timeCounter = () => {
             if(seconds > 0){
@@ -200,6 +219,7 @@
                 numberHolder.style.display = "none"
                 symbolShow.style.display ="none"
                 document.getElementById('numberContainer').style.display ="none"
+                refresh.style.display = "block"
 
                 numberOne.style.fontSize = "2vw"
                 numberTwo.style.fontSize = "2vw"
@@ -212,7 +232,7 @@
         var t=setInterval(timeCounter,1000);
 
         //Create all number button functions
-
+        
         one = () => {
             answer += 1
             numberHolder.innerHTML = answer
@@ -263,8 +283,8 @@
                 symbol = possibleSymbols[randomIndex];
 
                 if(symbol = '+'){
-                    numOne = Math.floor(Math.random() * 10000);
-                    numTwo = Math.floor(Math.random() * 10000);
+                    numOne = Math.floor(Math.random() * 1000);
+                    numTwo = Math.floor(Math.random() * 1000);
 
                     correctAnswer = numOne + numTwo;
                 }else if(symbol='-'){
