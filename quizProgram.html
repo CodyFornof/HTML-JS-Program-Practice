@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Random Picker</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        #container {
+            height: 90vh;
+            width: 90vw;
+            background-color: #333333;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+        #row{
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        #qOrA {
+            display: none;
+        }
+        #qOrAcontent {
+            display: none;
+        }
+        #buttonFlip {
+            display: none;
+        }
+        #buttonNext {
+            display: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+            <div id="row">
+            <div>
+                <p class="inputTitle" id="inputTitleQ">Question:</p>
+                <input type="text" id="inputQ" class="input">
+            </div>
+            <div>
+                <p class="inputTitle" id="inputTitleA">Answer:</p>
+                <input type="text" id="inputA" class="input">
+            </div>
+        </div>
+
+        <button id="submitButton" class="button" onclick="submit()">Submit</button>
+        <button id="finishButton" class="button" onclick="finish()">Finish</button>
+
+        <p id="qOrA">Question:</p>
+        <p id="qOrAcontent">Here is the sentence asking the question?</p>
+        <button id="buttonFlip" class="button" onclick="flip()">Flip</button>
+        <button id="buttonNext" class="button" onclick="next()">Next</button>
+
+    </div>
+
+    <script>
+
+        //FIRST HALF FIRST HALF FIRST HALF FIRST HALF FIRST HALF FIRST HALF FIRST HALF FIRST HALF
+
+        let inputQuestion = document.getElementById('inputQ').value;
+
+        let inputAnswer = document.getElementById('inputA').value;
+
+        let questionArray = [];
+
+        let answerArray = [];
+        
+        let currentAnswer = ''
+
+        let currentQuestion = ''
+
+        let showMode = document.getElementById('qOrA');
+
+        let showContent = document.getElementById('qOrAcontent')
+
+        let i = 0;
+
+        submit = () => {
+            inputQuestion = document.getElementById('inputQ').value;
+            questionArray.push(inputQuestion)
+
+            inputAnswer = document.getElementById('inputA').value;
+            answerArray.push(inputAnswer)
+
+            console.log(questionArray);
+            console.log(answerArray);
+
+            document.getElementById('inputQ').value = '';
+            document.getElementById('inputA').value = '';
+
+        }
+
+        finish = () => {
+            submit();
+
+            document.getElementById('inputQ').style.display = "none"
+            document.getElementById('inputA').style.display = "none"
+
+            document.getElementById('inputTitleQ').style.display = "none"
+            document.getElementById('inputTitleA').style.display = "none"
+
+
+            document.getElementById('submitButton').style.display = "none"
+            document.getElementById('finishButton').style.display = "none"
+
+            document.getElementById('qOrA').style.display = "block"
+            document.getElementById('qOrAcontent').style.display = "block"
+
+            document.getElementById('buttonFlip').style.display = "block"
+            document.getElementById('buttonNext').style.display = "block"
+
+            currentQuestion = questionArray[i]
+            currentAnswer = answerArray[i]
+
+            let currentMode = 'Question:';
+
+            let currentContent = currentQuestion
+
+            showMode.innerHTML = currentMode
+
+            showContent.innerHTML = currentContent
+
+        }
+
+        //SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF
+        
+        flip = () => {
+            if(currentMode = 'Question:'){
+                currentMode = 'Answer:'
+                showMode.innerHTML = currentMode
+                console.log(currentMode)
+            }else{
+                currentMode = 'Question:'
+                showMode.innerHTML = currentMode
+                console.log(currentMode)
+            }
+            showMode.innerHTML = currentMode
+        }
+
+
+    </script>
+  </body>
+</html>
