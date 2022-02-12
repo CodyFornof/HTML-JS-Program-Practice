@@ -31,6 +31,20 @@
             justify-content: center;
             align-items: center;
         }
+        .inputTitle {
+            color: white;
+            font-size: 1.6vw;
+            font-weight: bold;
+        }
+        .input {
+            height: 30vh;
+            width: 20vw;
+            color: #333;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            wrap: 'soft'
+        }
         #qOrA {
             display: none;
         }
@@ -47,6 +61,7 @@
   </head>
   <body>
     <div id="container">
+        <p id="questionNumber" class="inputTitle">0 Questions</p>
             <div id="row">
             <div>
                 <p class="inputTitle" id="inputTitleQ">Question:</p>
@@ -84,9 +99,15 @@
 
         let currentQuestion = ''
 
+        let currentMode = 'Question:';
+
+        let currentContent = currentQuestion
+
         let showMode = document.getElementById('qOrA');
 
         let showContent = document.getElementById('qOrAcontent')
+
+        let questionNumber = document.getElementById('questionNumber');
 
         let i = 0;
 
@@ -103,6 +124,9 @@
             document.getElementById('inputQ').value = '';
             document.getElementById('inputA').value = '';
 
+            i++;
+            questionNumber.innerHTML = i + ' Questions';
+
         }
 
         finish = () => {
@@ -111,6 +135,7 @@
             document.getElementById('inputQ').style.display = "none"
             document.getElementById('inputA').style.display = "none"
 
+            questionNumber.style.display = "none"
             document.getElementById('inputTitleQ').style.display = "none"
             document.getElementById('inputTitleA').style.display = "none"
 
@@ -124,34 +149,42 @@
             document.getElementById('buttonFlip').style.display = "block"
             document.getElementById('buttonNext').style.display = "block"
 
+            i = 0;
             currentQuestion = questionArray[i]
             currentAnswer = answerArray[i]
 
-            let currentMode = 'Question:';
+            currentMode = 'Question:';
 
-            let currentContent = currentQuestion
+            currentContent = currentQuestion
 
             showMode.innerHTML = currentMode
 
             showContent.innerHTML = currentContent
 
+
         }
 
-        //SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF
-        
+         //SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF SECOND HALF
+
         flip = () => {
-            if(currentMode = 'Question:'){
+            if(currentMode == 'Question:'){
                 currentMode = 'Answer:'
-                showMode.innerHTML = currentMode
-                console.log(currentMode)
-            }else{
+                currentContent = answerArray[i]
+            }else if(currentMode == 'Answer:'){
                 currentMode = 'Question:'
-                showMode.innerHTML = currentMode
-                console.log(currentMode)
+                currentContent = questionArray[i]
             }
             showMode.innerHTML = currentMode
+            showContent.innerHTML = currentContent
         }
 
+        next = () => {
+                i++;
+                currentMode = 'Question:'
+                currentContent = questionArray[i]
+                showMode.innerHTML = currentMode
+                showContent.innerHTML = currentContent
+        }
 
     </script>
   </body>
