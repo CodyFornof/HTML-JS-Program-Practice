@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Resume Generator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        .container {
+            width: 90vw;
+            background-color: #A0A0A0;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: auto;
+        }
+        #resumeContainer {
+            width: 80vw;
+            background-color: #A0A0A0;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: auto;
+        }
+        .smallInput {
+            height: 3.4vh;
+            width: 20vw;
+            border: 3px solid black;
+            font-size: 1.2vw;
+            font-weight: bold;
+            font-family: arial;
+        }
+        #label {
+            font-weight: bold;
+        }
+        #labelTitle {
+            font-weight: bold;
+            font-size: 2vw;
+        }
+        #button {
+            height: 6vh;
+            width: 8vw;
+            background-color: green;
+            font-weight: bold;
+            color: white;
+            margin: auto;
+        }
+        .text {
+            display: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="container">
+        <form>
+            <br>
+            <label id="label">First Name:</label><br>
+            <input class="smallInput" id="fname"><br><br>
+
+            <label id="label">Last Name:</label><br>
+            <input class="smallInput" id="lname"><br><br>
+
+            <label id="label">Job Title:</label><br>
+            <input class="smallInput" id="title"><br><br>
+
+            <label id="label">Location:</label><br>
+            <input class="smallInput" id="location"><br><br>
+
+            <label id="label">Phone Number:</label><br>
+            <input class="smallInput" id="phone"><br><br>
+
+            <label id="label">Email:</label><br>
+            <input class="smallInput" id="email"><br><br>
+
+            <label id="label">Skill 1:</label><br>
+            <input class="smallInput" id="skillOne"><br><br>
+            <label id="label">Skill 2:</label><br>
+            <input class="smallInput" id="skillTwo"><br><br>
+            <label id="label">Skill 3:</label><br>
+            <input class="smallInput" id="skillThree"><br><br><br>
+
+            <label id="labelTitle">Education</label><br><br>
+                <label id="label">School:</label><br>
+                <input class="smallInput" id="school"><br><br>
+                <label id="label">Class of:</label><br>
+                <input class="smallInput" id="sClass"><br><br>
+                <label id="label">GPA:</label><br>
+                <input class="smallInput" id="gpa"><br><br><br>
+
+            <label id="labelTitle">Work Experience</label><br><br>
+                <label id="label">Title:</label><br>
+                <input class="smallInput" id="eTitle"><br><br>
+                <label id="label">Company:</label><br>
+                <input class="smallInput" id="eCompany"><br><br>
+                <label id="label">Time Worked:</label><br>
+                <input class="smallInput" id="time"><br><br>
+                <label id="label">Company Website:</label><br>
+                <input class="smallInput" id="eWebsite"><br><br><br>
+
+            <label id="labelTitle">Reference</label><br><br>
+                <label id="label">Reference Name:</label><br>
+                <input class="smallInput" id="rName"><br><br>
+                <label id="label">Relation:</label><br>
+                <input class="smallInput" id="rRelation"><br><br>
+                <label id="label">Time Known:</label><br>
+                <input class="smallInput" id="rTime"><br><br>
+                <label id="label">Contact:</label><br>
+                <input class="smallInput" id="rContact"><br><br><br>
+                
+            <label id="labelTitle">Hobbies</label><br><br>
+                <label id="label">Hobby 1:</label><br>
+                <input class="smallInput" id="hOne"><br><br>
+                <label id="label">Hobby 2:</label><br>
+                <input class="smallInput" id="hTwo"><br><br>
+                <label id="label">Hobby 3:</label><br>
+                <input class="smallInput" id="hThree"><br><br><br>
+        </form>
+
+        <button id="button"onclick="submit()">Submit</button>
+        
+    </div>
+
+    <div class="container" id="containerTwo">
+
+        <p class="text" id="fullname"></p>
+
+        <p class="text" id="jobTitle"></p>
+
+        <p class="text" id="location"></p>
+        <p class="text" id="phone"></p>
+        <p class="text" id="email"></p>
+
+        <p class="text" id="skillOne"></p>
+        <p class="text" id="skillTwo"></p>
+        <p class="text" id="skillThree"></p>
+
+        <p class="text" id="school"></p>
+        <p class="text" id="sClass"></p>
+        <p class="text" id="gpa"></p>
+
+        <p class="text" id="eTitle"></p>
+        <p class="text" id="eCompany"></p>
+        <p class="text" id="time"></p>
+        <p class="text" id="eWebsite"></p>
+
+        <p class="text" id="rName"></p>
+        <p class="text" id="rRelation"></p>
+        <p class="text" id="rTime"></p>
+        <p class="text" id="rContact"></p>
+
+        <p class="text" id="hOne"></p>
+        <p class="text" id="hTwo"></p>
+        <p class="text" id="hThree"></p>
+
+    </div>
+
+    <script>
+
+        submit = () => {
+            let fullName = document.getElementById('fname').value + " " + document.getElementById('lname').value
+            console.log(fullName)
+
+            document.getElementById('fullname').innerHTML = fullName
+
+            let jobTitle = document.getElementById('title').value
+            console.log(jobTitle)
+
+            let location = document.getElementById('location').value
+            console.log(location)
+            let phone = document.getElementById('phone').value
+            console.log(phone)
+            let email = document.getElementById('email').value
+            console.log(email)
+
+            let skillOne = document.getElementById('skillOne').value
+            console.log(skillOne)
+            let skillTwo = document.getElementById('skillTwo').value
+            console.log(skillTwo)
+            let skillThree = document.getElementById('skillThree').value
+            console.log(skillThree)
+
+            let school = document.getElementById('school').value
+            console.log(school)
+            let classOf = document.getElementById('sClass').value
+            console.log(classOf)
+            let gpa = document.getElementById('gpa').value
+            console.log(gpa)
+
+            let title = document.getElementById('eTitle').value
+            console.log(title)
+            let company = document.getElementById('eCompany').value
+            console.log(company)
+            let time = document.getElementById('time').value
+            console.log(time)
+            let website = document.getElementById('eWebsite').value
+            console.log(website)
+
+            let rName = document.getElementById('rName').value
+            console.log(rName)
+            let rRelation = document.getElementById('rRelation').value
+            console.log(rRelation)
+            let rTime = document.getElementById('rTime').value
+            console.log(rTime)
+            let rContact = document.getElementById('rContact').value
+            console.log(rContact)
+
+            let hOne = document.getElementById('hOne').value
+            console.log(hOne)
+            let hTwo = document.getElementById('hTwo').value
+            console.log(hTwo)
+            let hThree = document.getElementById('hThree').value
+            console.log(hThree)
+
+            document.getElementsByClassName('text').style.display = "none"
+
+        }
+
+    </script>
+  </body>
+</html>
