@@ -25,36 +25,122 @@
             align-items: center;
             margin: auto;
         }
+        #inputTitle {
+            color: white;
+            font-weight: bold;
+        }
+        #changeContainer {
+            height: 40vh;
+            width: 20vw;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .changeText {
+            font-size: 1vw;
+            color: white;
+            margin: 0.4vh;
+        }
+        #changeDue {
+            color: white;
+            font-weight: bold;
+        }
     </style>
   </head>
   <body>
     <div id="container">
 
-        p input title
-        input textbox
-        p input title
-        input textbox
+        <p id="inputTitle">Charged</p>
+        <input type="number" class="input" id="inputCharged">
+        <p id="inputTitle">Payed</p>
+        <input type="number" class="input" id="inputPayed">
 
-        submit button
+        <br>
 
-        container
-        p hundereds
-        p fifties
-        p twenties
-        p tens
-        p fives
-        p ones
-        br
-        p quarters
-        p dimes
-        p nickels
-        p pennies
+        <button type="button" id="submitButton" onclick="submit()">Submit</button>
 
-        p Change due
+        <br>
+
+        <div id="changeContainer">
+            <p class="changeText" id="hundreds">0 Hundreds</p>
+            <p class="changeText" id="fifties">0 Fifties</p>
+            <p class="changeText" id="twenties">0 Twenties</p>
+            <p class="changeText" id="tens">0 Tens</p>
+            <p class="changeText" id="Fives">0 Fives</p>
+            <p class="changeText" id="ones">0 Ones</p>
+            <br>
+            <p class="changeText" id="quarters">0 Quarters</p>
+            <p class="changeText" id="dimes">0 Dimes</p>
+            <p class="changeText" id="nickels">0 Nickels</p>
+            <p class="changeText" id="pennies">0 Pennies</p>
+
+            <p id="changeDue">Change: $00.00</p>
+        </div>
 
     </div>
 
     <script>
+
+        let charged = document.getElementById('inputCharged').value
+        let payed = document.getElementById('inputPayed').value
+
+        let changeDisplay = document.getElementById('changeDue')
+
+        let hundreds = 0;
+        let fifties = 0;
+        let twenties = 0;
+        let tens = 0;
+        let fives = 0;
+        let ones = 0;
+
+        let quarters = 0;
+        let dimes = 0;
+        let nickels = 0;
+        let pennies = 0;
+
+        let change
+        let changeDue
+
+        submit = () => {
+
+            charged = document.getElementById('inputCharged').value
+            payed = document.getElementById('inputPayed').value
+
+            change = payed - charged;
+
+            changeDisplay.innerHTML = change;
+
+            change = changeDue;
+
+            for(let i = 0; changeDue = 0.0; i++){
+                if(changeDue >= 100){
+                    hundred++
+                    changeDue - 100
+                    cosnole.log(hundred)
+                }else if(changeDue >= 50){
+                    fifties++
+                    changeDue - 50
+                    cosnole.log(fifties)
+                }else if(changeDue >= 20){
+                    twenties++
+                    changeDue - 20
+                    cosnole.log(twenties)
+                }else if(changeDue >= 10){
+                    tens++
+                    changeDue - 10
+                    cosnole.log(tens)
+                }else if(changeDue >= 5){
+                    fives++
+                    changeDue - 5
+                    cosnole.log(fives)
+                }else if(changeDue >= 1){
+                    ones++
+                    changeDue - 1
+                    cosnole.log(ones)
+                }
+            }
+        }
+
 
         /*
 
@@ -84,6 +170,8 @@
             }
 
             innerHTML hundreds fifties twenties etc
+
+            innerHTML changeDue 
 
         }
 
