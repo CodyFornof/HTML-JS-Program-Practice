@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Random Picker</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        #container {
+            height: 90vh;
+            width: 90vw;
+            background-color: #333333;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+        #keyboardString {
+            height: 4vh;
+            width: 25vw;
+            background-color: white;
+            border-radius: 1vh;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #keyboardInput {
+            color: black;
+            font-weight: bold;
+            font-size: 1.2vw;
+            margin-left: 0.8vw;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <div id="keyboardInput">
+            <p id="keyboardString"></p>
+        </div>
+        <div id="row">
+            <button id="key" onclick = "qKey()">Q</button>
+            <button id="key" onclick = "wKey()">W</button>
+            <button id="key" onclick = "eKey()">E</button>
+            <button id="key" onclick = "rKey()">R</button>
+            <button id="key" onclick = "tKey()">T</button>
+            <button id="key" onclick = "yKey()">Y</button>
+            <button id="key" onclick = "uKey()">U</button>
+            <button id="key" onclick = "iKey()">I</button>
+            <button id="key" onclick = "oKey()">O</button>
+            <button id="key" onclick = "pKey()">P</button>
+        </div>
+        <div id="row">
+            <button id="key" onclick = "aKey()">A</button>
+            <button id="key" onclick = "sKey()">S</button>
+            <button id="key" onclick = "dKey()">D</button>
+            <button id="key" onclick = "fKey()">F</button>
+            <button id="key" onclick = "gKey()">G</button>
+            <button id="key" onclick = "hKey()">H</button>
+            <button id="key" onclick = "jKey()">J</button>
+            <button id="key" onclick = "kKey()">K</button>
+            <button id="key" onclick = "lKey()">L</button>
+        </div>
+        <div id="row">
+            <button id="key" onclick = "zKey()">Z</button>
+            <button id="key" onclick = "xKey()">X</button>
+            <button id="key" onclick = "cKey()">C</button>
+            <button id="key" onclick = "vKey()">V</button>
+            <button id="key" onclick = "bKey()">B</button>
+            <button id="key" onclick = "nKey()">N</button>
+            <button id="key" onclick = "mKey()">M</button>
+            <button id="key" onclick = "backKey()">--</button>
+        </div>
+        <div id="row">
+            <button id="key" style="width: 8vw; height: 2.8vh" onclick = "spaceKey()"> </button>
+        </div>
+    </div>
+
+    <script>
+
+        let string = ''
+
+        let stringDisplay = document.getElementById('keyboardString')
+
+        qKey = () => {
+            string = string + 'q'
+            stringDisplay.innerHTML = string
+        }
+        wKey = () => {
+            string = string + 'w'
+            stringDisplay.innerHTML = string
+        }
+        eKey = () => {
+            string = string + 'e'
+            stringDisplay.innerHTML = string
+        }
+        rKey = () => {
+            string = string + 'r'
+            stringDisplay.innerHTML = string
+        }
+        tKey = () => {
+            string = string + 't'
+            stringDisplay.innerHTML = string
+        }
+        yKey = () => {
+            string = string + 'y'
+            stringDisplay.innerHTML = string
+        }
+        uKey = () => {
+            string = string + 'u'
+            stringDisplay.innerHTML = string
+        }
+        iKey = () => {
+            string = string + 'i'
+            stringDisplay.innerHTML = string
+        }
+        oKey = () => {
+            string = string + 'o'
+            stringDisplay.innerHTML = string
+        }
+        pKey = () => {
+            string = string + 'p'
+            stringDisplay.innerHTML = string
+        }
+        aKey = () => {
+            string = string + 'a'
+            stringDisplay.innerHTML = string
+        }
+        sKey = () => {
+            string = string + 's'
+            stringDisplay.innerHTML = string
+        }
+        dKey = () => {
+            string = string + 'd'
+            stringDisplay.innerHTML = string
+        }
+        fKey = () => {
+            string = string + 'f'
+            stringDisplay.innerHTML = string
+        }
+        gKey = () => {
+            string = string + 'g'
+            stringDisplay.innerHTML = string
+        }
+        hKey = () => {
+            string = string + 'h'
+            stringDisplay.innerHTML = string
+        }
+        jKey = () => {
+            string = string + 'j'
+            stringDisplay.innerHTML = string
+        }
+        kKey = () => {
+            string = string + 'k'
+            stringDisplay.innerHTML = string
+        }
+        lKey = () => {
+            string = string + 'l'
+            stringDisplay.innerHTML = string
+        }
+        zKey = () => {
+            string = string + 'a'
+            stringDisplay.innerHTML = string
+        }
+        xKey = () => {
+            string = string + 's'
+            stringDisplay.innerHTML = string
+        }
+        cKey = () => {
+            string = string + 'd'
+            stringDisplay.innerHTML = string
+        }
+        vKey = () => {
+            string = string + 'f'
+            stringDisplay.innerHTML = string
+        }
+        bKey = () => {
+            string = string + 'g'
+            stringDisplay.innerHTML = string
+        }
+        nKey = () => {
+            string = string + 'h'
+            stringDisplay.innerHTML = string
+        }
+        mKey = () => {
+            string = string + 'j'
+            stringDisplay.innerHTML = string
+        }
+        spaceKey = () => {
+            string = string + ' '
+            stringDisplay.innerHTML = string
+        }
+        backKey = () => {
+            string = ""
+            stringDisplay.innerHTML = string
+        }
+
+    </script>
+  </body>
+</html>
