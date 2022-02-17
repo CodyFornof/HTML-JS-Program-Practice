@@ -66,7 +66,7 @@
             <p class="changeText" id="fifties">0 Fifties</p>
             <p class="changeText" id="twenties">0 Twenties</p>
             <p class="changeText" id="tens">0 Tens</p>
-            <p class="changeText" id="Fives">0 Fives</p>
+            <p class="changeText" id="fives">0 Fives</p>
             <p class="changeText" id="ones">0 Ones</p>
             <br>
             <p class="changeText" id="quarters">0 Quarters</p>
@@ -93,6 +93,18 @@
         let fives = 0;
         let ones = 0;
 
+        let hundredsDisplay = document.getElementById('hundreds')
+        let fiftiesDisplay = document.getElementById('fifties')
+        let twentiesDisplay = document.getElementById('twenties')
+        let tensDisplay = document.getElementById('tens')
+        let fivesDisplay = document.getElementById('fives')
+        let onesDisplay = document.getElementById('ones')
+
+        let quartersDisplay = document.getElementById('quarters')
+        let dimesDisplay = document.getElementById('dimes')
+        let nickelsDisplay = document.getElementById('nickels')
+        let penniesDisplay = document.getElementById('pennies')
+
         let quarters = 0;
         let dimes = 0;
         let nickels = 0;
@@ -101,6 +113,8 @@
         let change
         let changeDue
 
+        let i
+
         submit = () => {
 
             charged = document.getElementById('inputCharged').value
@@ -108,74 +122,75 @@
 
             change = payed - charged;
 
-            changeDisplay.innerHTML = change;
+            changeDisplay.innerHTML = 'Change Due: $' + change;
 
-            change = changeDue;
+            changeDue = change;
 
-            for(let i = 0; changeDue = 0.0; i++){
-                if(changeDue >= 100){
-                    hundred++
-                    changeDue - 100
-                    cosnole.log(hundred)
-                }else if(changeDue >= 50){
-                    fifties++
-                    changeDue - 50
-                    cosnole.log(fifties)
-                }else if(changeDue >= 20){
-                    twenties++
-                    changeDue - 20
-                    cosnole.log(twenties)
-                }else if(changeDue >= 10){
-                    tens++
-                    changeDue - 10
-                    cosnole.log(tens)
-                }else if(changeDue >= 5){
-                    fives++
-                    changeDue - 5
-                    cosnole.log(fives)
-                }else if(changeDue >= 1){
-                    ones++
-                    changeDue - 1
-                    cosnole.log(ones)
+            console.log(changeDue)
+
+                while(changeDue >= 100){
+                    hundreds++;
+                    changeDue = changeDue - 100
+                    hundredsDisplay.innerHTML = hundreds + ' Hundreds';
                 }
-            }
+                while(changeDue >= 50){
+                    fifties++;
+                    changeDue = changeDue - 50
+                    fiftiesDisplay.innerHTML = fifties + ' Fifties';
+                }
+                while(changeDue >= 20){
+                    twenties++;
+                    changeDue = changeDue - 20
+                    twentiesDisplay.innerHTML = twenties + ' Twenties';
+                }
+                while(changeDue >= 10){
+                    tens++;
+                    changeDue = changeDue - 10
+                    tensDisplay.innerHTML = tens + ' Tens';
+                }
+                while(changeDue >= 5){
+                    fives++;
+                    changeDue = changeDue - 5
+                    fivesDisplay.innerHTML = fives + ' Fives';
+                }
+                while(changeDue >= 1){
+                    ones++;
+                    changeDue = changeDue - 1
+                    onesDisplay.innerHTML = ones + ' Ones';
+                }
+
+
+
+                while(changeDue >= 0.25){
+                    quarters++;
+                    changeDue = changeDue - 0.25
+                    quartersDisplay.innerHTML = quarters + ' Quarters';
+                }
+                while(changeDue >= 0.10){
+                    dimes++;
+                    changeDue = changeDue - 0.10
+                    dimesDisplay.innerHTML = dimes + ' Dimes';
+                }
+                while(changeDue >= 0.05){
+                    nickels++;
+                    changeDue = changeDue - 0.05
+                    nickelsDisplay.innerHTML = nickels + ' Nickels';
+                }
+                while(changeDue >= 0.01){
+                    pennies++;
+                    changeDue = changeDue - 0.01
+                    penniesDisplay.innerHTML = pennies + ' Pennies';
+                }
+
+            console.log(changeDue)
+
+            console.log('Ones ' + ones)
+            console.log('fives ' + fives)
+            console.log('tens ' + tens)
+            console.log('twenties ' + twenties)
+            console.log('fifties ' + fifties)
+
         }
-
-
-        /*
-
-        get values from inputs
-
-        let variables hundres fifties twenties etc = 0
-
-        let change = 0
-
-        let change due = 
-
-        submit {
-            let change = payed - charged
-
-            change due = change
-
-            innerHTML change
-
-            for(let i = 0; changeDue = 0.0; i++){
-                if(changeDue >= 100){
-                    hundred++
-                    changeDue - 100
-                }else if(changeDue >= 50){
-                    fifties++
-                    changeDue - 50
-                }etc
-            }
-
-            innerHTML hundreds fifties twenties etc
-
-            innerHTML changeDue 
-
-        }
-
-        */
 
     </script>
   </body>
