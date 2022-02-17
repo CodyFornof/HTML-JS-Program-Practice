@@ -54,9 +54,6 @@
             color: white;
             margin: auto;
         }
-        .text {
-            display: none;
-        }
     </style>
   </head>
   <body>
@@ -135,92 +132,91 @@
 
         <p class="text" id="jobTitle"></p>
 
-        <p class="text" id="location"></p>
-        <p class="text" id="phone"></p>
-        <p class="text" id="email"></p>
+        <p class="text" id="sLocation"></p>
+        <p class="text" id="sPhone"></p>
+        <p class="text" id="sEmail"></p>
 
-        <p class="text" id="skillOne"></p>
-        <p class="text" id="skillTwo"></p>
-        <p class="text" id="skillThree"></p>
+        <p class="text" id="sskillOne"></p>
+        <p class="text" id="sskillTwo"></p>
+        <p class="text" id="sskillThree"></p>
 
-        <p class="text" id="school"></p>
-        <p class="text" id="sClass"></p>
-        <p class="text" id="gpa"></p>
+        <p class="text" id="sSchool"></p>
+        <p class="text" id="ssClass"></p>
+        <p class="text" id="sGpa"></p>
 
-        <p class="text" id="eTitle"></p>
-        <p class="text" id="eCompany"></p>
-        <p class="text" id="time"></p>
-        <p class="text" id="eWebsite"></p>
+        <p class="text" id="seTitle"></p>
+        <p class="text" id="seCompany"></p>
+        <p class="text" id="sTime"></p>
+        <p class="text" id="seWebsite"></p>
 
-        <p class="text" id="rName"></p>
-        <p class="text" id="rRelation"></p>
-        <p class="text" id="rTime"></p>
-        <p class="text" id="rContact"></p>
+        <p class="text" id="srName"></p>
+        <p class="text" id="srRelation"></p>
+        <p class="text" id="srTime"></p>
+        <p class="text" id="srContact"></p>
 
-        <p class="text" id="hOne"></p>
-        <p class="text" id="hTwo"></p>
-        <p class="text" id="hThree"></p>
+        <p class="text" id="shOne"></p>
+        <p class="text" id="shTwo"></p>
+        <p class="text" id="shThree"></p>
 
     </div>
 
-    <script>
+    <script> 
 
-        submit = () => {
+        function submit() {
+
             let fullName = document.getElementById('fname').value + " " + document.getElementById('lname').value
             console.log(fullName)
 
             document.getElementById('fullname').innerHTML = fullName
 
             let jobTitle = document.getElementById('title').value
-            console.log(jobTitle)
+            document.getElementById('jobTitle').innerHTML = jobTitle
 
             let location = document.getElementById('location').value
-            console.log(location)
+            document.getElementById('sLocation').innerHTML = location
             let phone = document.getElementById('phone').value
-            console.log(phone)
+            document.getElementById('sPhone').innerHTML = phone
             let email = document.getElementById('email').value
-            console.log(email)
+            document.getElementById('sEmail').innerHTML = email
 
             let skillOne = document.getElementById('skillOne').value
-            console.log(skillOne)
+            document.getElementById('sskillOne').innerHTML = skillOne
             let skillTwo = document.getElementById('skillTwo').value
-            console.log(skillTwo)
+            document.getElementById('sskillTwo').innerHTML = skillTwo
             let skillThree = document.getElementById('skillThree').value
-            console.log(skillThree)
+            document.getElementById('sskillThree').innerHTML = skillThree
 
             let school = document.getElementById('school').value
-            console.log(school)
+            document.getElementById('sSchool').innerHTML = school
             let classOf = document.getElementById('sClass').value
-            console.log(classOf)
+            document.getElementById('ssClass').innerHTML = classOf
             let gpa = document.getElementById('gpa').value
-            console.log(gpa)
+            document.getElementById('sGpa').innerHTML = gpa
 
             let title = document.getElementById('eTitle').value
-            console.log(title)
+            document.getElementById('seTitle').innerHTML = title
             let company = document.getElementById('eCompany').value
-            console.log(company)
+            document.getElementById('seCompany').innerHTML = company
             let time = document.getElementById('time').value
-            console.log(time)
+            document.getElementById('sTime').innerHTML = time
             let website = document.getElementById('eWebsite').value
-            console.log(website)
+            document.getElementById('seWebsite').innerHTML = website
 
             let rName = document.getElementById('rName').value
-            console.log(rName)
+            document.getElementById('srName').innerHTML = rName
             let rRelation = document.getElementById('rRelation').value
-            console.log(rRelation)
+            document.getElementById('srRelation').innerHTML = rRelation
             let rTime = document.getElementById('rTime').value
-            console.log(rTime)
+            document.getElementById('srTime').innerHTML = rTime
             let rContact = document.getElementById('rContact').value
-            console.log(rContact)
+            document.getElementById('srContact').innerHTML = rContact
 
             let hOne = document.getElementById('hOne').value
-            console.log(hOne)
+            document.getElementById('shOne').innerHTML = hOne
             let hTwo = document.getElementById('hTwo').value
-            console.log(hTwo)
+            document.getElementById('shTwo').innerHTML = hTwo
             let hThree = document.getElementById('hThree').value
-            console.log(hThree)
-
-            document.getElementsByClassName('text').style.display = "none"
+            document.getElementById('shThree').innerHTML = hThree
 
         }
 
