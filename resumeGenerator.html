@@ -18,7 +18,8 @@
     <style>
         .container {
             width: 90vw;
-            background-color: #A0A0A0;
+            height: 95vh;
+            background: linear-gradient(#00C8D6, #4EE6C9);
             display:flex;
             flex-direction: column;
             align-items: center;
@@ -34,12 +35,13 @@
             margin: auto;
         }
         #resumeContainer {
-            width: 80vw;
-            background-color: #A0A0A0;
-            display:flex;
+            width: 40vw;
+            height: 85vh;
+            background-color: white;
+            display: flex;
             flex-direction: column;
-            justify-content: center;
             margin: auto;
+            border: solid 2.5px black;
         }
         #cardContainer {
             height: 80vh;
@@ -50,7 +52,7 @@
             display:flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             margin: auto;
         }
         #inputContainer {
@@ -61,7 +63,6 @@
             justify-content: flex-start;
             align-items: center;
             margin: auto;
-            background-color: pink;
             overflow-y: scroll;
         }
         .smallInput {
@@ -97,30 +98,59 @@
             color: green;
             border: #333333 1px solid;
         }
+        p {
+            font-family: arial;
+            position: relative;
+        }
+        #fullname {
+            font-weight: bold;
+            font-size: 1.4vw;
+            left: 5%;
+        }
+        #jobTitle {
+            font-size: 1vw;
+            left: 5%;
+            bottom: 5%;
+        }
+        #sLocation, #sPhone, #sEmail {
+            color: white;
+            font-weight: bold;
+            font-size: 1vw;
+            margin: auto;
+        }
+        #contactBar{
+            background-color: rgb(0, 102, 255);
+            height: 10vh;
+            width: 40vw;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
         /* Make UI: https://freefrontend.com/assets/img/css-forms/multi-step-form-with-progress-bar-using-jquery-and-css3.png */
     </style>
   </head>
   <body>
     <div class="container" id="container">
         <div id="cardContainer">
-            <p id="instruction">Create Resume:</p>
+            <p id="instruction" style="font-family: arial; font-weight: bold">Create Resume:</p>
             <div id="inputContainer">
                 <form>
                     <input class="smallInput" id="fname" placeholder="First Name"><br><br>
                     <input class="smallInput" id="lname" placeholder="Last Name"><br><br>
                     <input class="smallInput" id="title" placeholder="Job Title"><br><br>
                     <input class="smallInput" id="location" placeholder="Location"><br><br>
-                    <input class="smallInput" id="phone" placeholder="phone"><br><br>
-                    <input class="smallInput" id="email" placeholder="email"><br><br>
+                    <input class="smallInput" id="phone" placeholder="Phone"><br><br>
+                    <input class="smallInput" id="email" placeholder="Email"><br><br>
                     <input class="smallInput" id="skillOne" placeholder="Skill One"><br><br>
                     <input class="smallInput" id="skillTwo" placeholder="Skill Two"><br><br>
                     <input class="smallInput" id="skillThree" placeholder="Skill Three"><br><br>
-                    <input class="smallInput" id="school" placeholder="school"><br><br>
+                    <input class="smallInput" id="school" placeholder="School"><br><br>
                     <input class="smallInput" id="sClass" placeholder="Class of"><br><br>
                     <input class="smallInput" id="gpa" placeholder="GPA"><br><br><br>
                     <input class="smallInput" id="eTitle" placeholder="Title"><br><br>
                     <input class="smallInput" id="eCompany" placeholder="Company"><br><br>
-                    <input class="smallInput" id="time" placeholder="time"><br><br>
+                    <input class="smallInput" id="time" placeholder="Time"><br><br>
                     <input class="smallInput" id="eWebsite" placeholder="Company Website"><br><br><br>
                     <input class="smallInput" id="rName" placeholder="Reference Name"><br><br>
                     <input class="smallInput" id="rRelation" placeholder="Relation"><br><br>
@@ -135,7 +165,42 @@
             <button id="button"onclick="submit()">Submit</button>
         </div>
     </div>
+    <br><br><br>
+    <div id="resumeContainer">
 
+        <p class="text" id="fullname">Cody Fornof</p>
+        <p class="text" id="jobTitle">Engineer</p>
+
+        <div id="contactBar">
+            <p class="text" id="sLocation">Bakersfield, CA</p>
+            <p class="text" id="sPhone">4724165</p>
+            <p class="text" id="sEmail">cfornof@gmail.com</p>
+        </div>
+
+        <p class="text" id="sskillOne"></p>
+        <p class="text" id="sskillTwo"></p>
+        <p class="text" id="sskillThree"></p>
+
+        <p class="text" id="sSchool"></p>
+        <p class="text" id="ssClass"></p>
+        <p class="text" id="sGpa"></p>
+
+        <p class="text" id="seTitle"></p>
+        <p class="text" id="seCompany"></p>
+        <p class="text" id="sTime"></p>
+        <p class="text" id="seWebsite"></p>
+
+        <p class="text" id="srName"></p>
+        <p class="text" id="srRelation"></p>
+        <p class="text" id="srTime"></p>
+        <p class="text" id="srContact"></p>
+
+        <p class="text" id="shOne"></p>
+        <p class="text" id="shTwo"></p>
+        <p class="text" id="shThree"></p>
+
+    </div>
+<br><br>
     <script> 
 
         function submit() {
