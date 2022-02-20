@@ -14,10 +14,20 @@
     />
     <title>Resume Generator</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <script src="html2pdf.bundle.min.js"></script>
     <style>
         .container {
             width: 90vw;
             background-color: #A0A0A0;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+        #containerTwo {
+            width: 90vw;
+            background-color: white;
             display:flex;
             flex-direction: column;
             justify-content: center;
@@ -31,13 +41,38 @@
             justify-content: center;
             margin: auto;
         }
+        #cardContainer {
+            height: 80vh;
+            width: 35vw;
+            top: 10%;
+            background-color: white;
+            border-radius: 5px;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+        #inputContainer {
+            height: 50vh;
+            width: 34vw;
+            display:flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            margin: auto;
+            background-color: pink;
+            overflow-y: scroll;
+        }
         .smallInput {
-            height: 3.4vh;
+            height: 6.5vh;
             width: 20vw;
-            border: 3px solid black;
+            border: 1.8px solid #c0bfbf;
+            position:relative;
             font-size: 1.2vw;
-            font-weight: bold;
             font-family: arial;
+            margin: auto;
+            object-fit:contain;
         }
         #label {
             font-weight: bold;
@@ -50,114 +85,55 @@
             height: 6vh;
             width: 8vw;
             background-color: green;
+            font-size: 1.2vw;
             font-weight: bold;
             color: white;
             margin: auto;
+            border: none;
+            transition: 1s;
         }
+        #button:hover {
+            background-color: white;
+            color: green;
+            border: #333333 1px solid;
+        }
+        /* Make UI: https://freefrontend.com/assets/img/css-forms/multi-step-form-with-progress-bar-using-jquery-and-css3.png */
     </style>
   </head>
   <body>
     <div class="container" id="container">
-        <form>
-            <br>
-            <label id="label">First Name:</label><br>
-            <input class="smallInput" id="fname"><br><br>
+        <div id="cardContainer">
+            <p id="instruction">Create Resume:</p>
+            <div id="inputContainer">
+                <form>
+                    <input class="smallInput" id="fname" placeholder="First Name"><br><br>
+                    <input class="smallInput" id="lname" placeholder="Last Name"><br><br>
+                    <input class="smallInput" id="title" placeholder="Job Title"><br><br>
+                    <input class="smallInput" id="location" placeholder="Location"><br><br>
+                    <input class="smallInput" id="phone" placeholder="phone"><br><br>
+                    <input class="smallInput" id="email" placeholder="email"><br><br>
+                    <input class="smallInput" id="skillOne" placeholder="Skill One"><br><br>
+                    <input class="smallInput" id="skillTwo" placeholder="Skill Two"><br><br>
+                    <input class="smallInput" id="skillThree" placeholder="Skill Three"><br><br>
+                    <input class="smallInput" id="school" placeholder="school"><br><br>
+                    <input class="smallInput" id="sClass" placeholder="Class of"><br><br>
+                    <input class="smallInput" id="gpa" placeholder="GPA"><br><br><br>
+                    <input class="smallInput" id="eTitle" placeholder="Title"><br><br>
+                    <input class="smallInput" id="eCompany" placeholder="Company"><br><br>
+                    <input class="smallInput" id="time" placeholder="time"><br><br>
+                    <input class="smallInput" id="eWebsite" placeholder="Company Website"><br><br><br>
+                    <input class="smallInput" id="rName" placeholder="Reference Name"><br><br>
+                    <input class="smallInput" id="rRelation" placeholder="Relation"><br><br>
+                    <input class="smallInput" id="rTime" placeholder="Time Known"><br><br>
+                    <input class="smallInput" id="rContact" placeholder="Contact"><br><br><br>
+                    <input class="smallInput" id="hOne" placeholder="Hobby One"><br><br>
+                    <input class="smallInput" id="hTwo" placeholder="Hobby Two"><br><br>
+                    <input class="smallInput" id="hThree" placeholder="Hobby Three"><br><br><br>
+                </form>
+            </div>
 
-            <label id="label">Last Name:</label><br>
-            <input class="smallInput" id="lname"><br><br>
-
-            <label id="label">Job Title:</label><br>
-            <input class="smallInput" id="title"><br><br>
-
-            <label id="label">Location:</label><br>
-            <input class="smallInput" id="location"><br><br>
-
-            <label id="label">Phone Number:</label><br>
-            <input class="smallInput" id="phone"><br><br>
-
-            <label id="label">Email:</label><br>
-            <input class="smallInput" id="email"><br><br>
-
-            <label id="label">Skill 1:</label><br>
-            <input class="smallInput" id="skillOne"><br><br>
-            <label id="label">Skill 2:</label><br>
-            <input class="smallInput" id="skillTwo"><br><br>
-            <label id="label">Skill 3:</label><br>
-            <input class="smallInput" id="skillThree"><br><br><br>
-
-            <label id="labelTitle">Education</label><br><br>
-                <label id="label">School:</label><br>
-                <input class="smallInput" id="school"><br><br>
-                <label id="label">Class of:</label><br>
-                <input class="smallInput" id="sClass"><br><br>
-                <label id="label">GPA:</label><br>
-                <input class="smallInput" id="gpa"><br><br><br>
-
-            <label id="labelTitle">Work Experience</label><br><br>
-                <label id="label">Title:</label><br>
-                <input class="smallInput" id="eTitle"><br><br>
-                <label id="label">Company:</label><br>
-                <input class="smallInput" id="eCompany"><br><br>
-                <label id="label">Time Worked:</label><br>
-                <input class="smallInput" id="time"><br><br>
-                <label id="label">Company Website:</label><br>
-                <input class="smallInput" id="eWebsite"><br><br><br>
-
-            <label id="labelTitle">Reference</label><br><br>
-                <label id="label">Reference Name:</label><br>
-                <input class="smallInput" id="rName"><br><br>
-                <label id="label">Relation:</label><br>
-                <input class="smallInput" id="rRelation"><br><br>
-                <label id="label">Time Known:</label><br>
-                <input class="smallInput" id="rTime"><br><br>
-                <label id="label">Contact:</label><br>
-                <input class="smallInput" id="rContact"><br><br><br>
-                
-            <label id="labelTitle">Hobbies</label><br><br>
-                <label id="label">Hobby 1:</label><br>
-                <input class="smallInput" id="hOne"><br><br>
-                <label id="label">Hobby 2:</label><br>
-                <input class="smallInput" id="hTwo"><br><br>
-                <label id="label">Hobby 3:</label><br>
-                <input class="smallInput" id="hThree"><br><br><br>
-        </form>
-
-        <button id="button"onclick="submit()">Submit</button>
-        
-    </div>
-
-    <div class="container" id="containerTwo">
-
-        <p class="text" id="fullname"></p>
-
-        <p class="text" id="jobTitle"></p>
-
-        <p class="text" id="sLocation"></p>
-        <p class="text" id="sPhone"></p>
-        <p class="text" id="sEmail"></p>
-
-        <p class="text" id="sskillOne"></p>
-        <p class="text" id="sskillTwo"></p>
-        <p class="text" id="sskillThree"></p>
-
-        <p class="text" id="sSchool"></p>
-        <p class="text" id="ssClass"></p>
-        <p class="text" id="sGpa"></p>
-
-        <p class="text" id="seTitle"></p>
-        <p class="text" id="seCompany"></p>
-        <p class="text" id="sTime"></p>
-        <p class="text" id="seWebsite"></p>
-
-        <p class="text" id="srName"></p>
-        <p class="text" id="srRelation"></p>
-        <p class="text" id="srTime"></p>
-        <p class="text" id="srContact"></p>
-
-        <p class="text" id="shOne"></p>
-        <p class="text" id="shTwo"></p>
-        <p class="text" id="shThree"></p>
-
+            <button id="button"onclick="submit()">Submit</button>
+        </div>
     </div>
 
     <script> 
