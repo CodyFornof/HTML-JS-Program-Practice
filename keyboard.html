@@ -58,6 +58,7 @@
             <button id="key" onclick = "iKey()">I</button>
             <button id="key" onclick = "oKey()">O</button>
             <button id="key" onclick = "pKey()">P</button>
+            <button id="key" onclick = "backspaceKey()">--</button>
         </div>
         <div id="row">
             <button id="key" onclick = "aKey()">A</button>
@@ -78,7 +79,6 @@
             <button id="key" onclick = "bKey()">B</button>
             <button id="key" onclick = "nKey()">N</button>
             <button id="key" onclick = "mKey()">M</button>
-            <button id="key" onclick = "backKey()">--</button>
         </div>
         <div id="row">
             <button id="key" style="width: 8vw; height: 2.8vh" onclick = "spaceKey()"> </button>
@@ -90,11 +90,108 @@
         let string = ''
 
         let stringDisplay = document.getElementById('keyboardString')
+        var addEvent = document.addEventListener ? function(target,type,action){
+            if(target){
+                target.addEventListener(type,action,false);
+            }
+        } : function(target,type,action){
+            if(target){
+                target.attachEvent('on' + type,action,false);
+            }
+        }
 
         qKey = () => {
             string = string + 'q'
             stringDisplay.innerHTML = string
         }
+        addEvent(document,'keydown',function(q){
+            q = q || window.event;
+            var key = q.which || q.keyCode;
+            if(key===81){
+                qKey();
+            }
+            if(key===87){
+                wKey();
+            }
+            if(key===69){
+                eKey();
+            }
+            if(key===82){
+                rKey();
+            }
+            if(key===84){
+                tKey();
+            }
+            if(key===89){
+                yKey();
+            }
+            if(key===85){
+                uKey();
+            }
+            if(key===73){
+                iKey();
+            }
+            if(key===79){
+                oKey();
+            }
+            if(key===80){
+                pKey();
+            }
+            if(key===65){
+                aKey();
+            }
+            if(key===83){
+                sKey();
+            }
+            if(key===68){
+                dKey();
+            }
+            if(key===70){
+                fKey();
+            }
+            if(key===71){
+                gKey();
+            }
+            if(key===72){
+                hKey();
+            }
+            if(key===74){
+                jKey();
+            }
+            if(key===75){
+                kKey();
+            }
+            if(key===76){
+                lKey();
+            }
+            if(key===90){
+                zKey();
+            }
+            if(key===88){
+                xKey();
+            }
+            if(key===67){
+                cKey();
+            }
+            if(key===86){
+                vKey();
+            }
+            if(key===66){
+                bKey();
+            }
+            if(key===78){
+                nKey();
+            }
+            if(key===77){
+                mKey();
+            }
+            if(key===32){
+                spaceKey();
+            }
+            if(key===8){
+                backspaceKey();
+            }
+        });
         wKey = () => {
             string = string + 'w'
             stringDisplay.innerHTML = string
@@ -168,42 +265,41 @@
             stringDisplay.innerHTML = string
         }
         zKey = () => {
-            string = string + 'a'
+            string = string + 'z'
             stringDisplay.innerHTML = string
         }
         xKey = () => {
-            string = string + 's'
+            string = string + 'x'
             stringDisplay.innerHTML = string
         }
         cKey = () => {
-            string = string + 'd'
+            string = string + 'c'
             stringDisplay.innerHTML = string
         }
         vKey = () => {
-            string = string + 'f'
+            string = string + 'v'
             stringDisplay.innerHTML = string
         }
         bKey = () => {
-            string = string + 'g'
+            string = string + 'b'
             stringDisplay.innerHTML = string
         }
         nKey = () => {
-            string = string + 'h'
+            string = string + 'n'
             stringDisplay.innerHTML = string
         }
         mKey = () => {
-            string = string + 'j'
+            string = string + 'm'
             stringDisplay.innerHTML = string
         }
         spaceKey = () => {
             string = string + ' '
             stringDisplay.innerHTML = string
         }
-        backKey = () => {
-            string = ""
+        backspaceKey = () => {
+            string = string.slice(0, -1)
             stringDisplay.innerHTML = string
         }
-
     </script>
   </body>
 </html>
