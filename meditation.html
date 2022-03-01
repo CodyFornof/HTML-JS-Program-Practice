@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Meditate</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <script src="html2pdf.bundle.min.js"></script>
+    <style>
+        .container {
+            width: 90vw;
+            height: 90vh;
+            background-color: #333333;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+        }
+        .modeCircle {
+            height: 18vh;
+            width: 10vw;
+            background-color: cyan;
+            border-radius: 25vw;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 5vh;
+            cursor: pointer;
+        }
+        #row {
+            display: flex;
+            flex-direction: row;
+        }
+        #circle {
+            height: 20%;
+            width: 10%;
+            background-color: cyan;
+            border-radius: 25vw;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        /* Make UI: https://freefrontend.com/assets/img/css-forms/multi-step-form-with-progress-bar-using-jquery-and-css3.png */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="row">
+            <div class="modeCircle" id="fiveMinute" onclick="fiveMinute()">
+                5 Minutes
+            </div>
+            <div class="modeCircle" id="tenMinute" onclick="tenMinute()">
+                10 Minutes
+            </div>
+        </div>
+        <div id="circle">
+            Breathe In
+        </div>
+        <div id="row">
+            <div class="modeCircle" id="fifteenMinute" onclick="fifteenMinute()">
+                15 Minutes
+            </div>
+            <div class="modeCircle" id="twentyFiveMinute" onclick="twentyFiveMinute()">
+                25 Minutes
+            </div>
+        </div>
+    </div>
+
+    <script> 
+
+        let width = 10
+        let height = 20
+        let seconds = 10
+
+        fiveMinute = () => {
+            document.getElementById('fiveMinute').style.display = "none"
+            document.getElementById('tenMinute').style.display = "none"
+            document.getElementById('fifteenMinute').style.display = "none"
+            document.getElementById('twentyFiveMinute').style.display = "none"
+
+            document.getElementById('circle').style.width = width + '%';
+            document.getElementById('circle').style.height = height + '%';
+
+            function animation() {
+                if(seconds < 10){
+                    height++
+                    width++
+                    document.getElementById('circle').innerHTML = width + "%"
+                    document.getElementById('circle').innerHTML = height + "%"
+                    seconds++
+                }else if(seconds >= 10){
+                    seconds = 10;
+                    clearTimeout(animationTime)
+                }
+            }
+
+            let animationTime = setInterval(animation, 1000)
+        }
+
+    </script>
+  </body>
+</html>
