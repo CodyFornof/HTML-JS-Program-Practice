@@ -14,7 +14,6 @@
     />
     <title>Meditate</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
-    <script src="html2pdf.bundle.min.js"></script>
     <style>
         .container {
             width: 90vw;
@@ -51,12 +50,37 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            cursor: default
         }
-        /* Make UI: https://freefrontend.com/assets/img/css-forms/multi-step-form-with-progress-bar-using-jquery-and-css3.png */
+        #topBar {
+            background-color: cyan;
+            height: 8%;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold
+        }
+        #fixedElement {
+            background-color: #333333;
+            position:fixed;
+            top: 1%;
+            height: 10%;
+            width: 90%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1.8vw;
+        }
     </style>
   </head>
   <body>
     <div class="container">
+        <div id="fixedElement">
+            4:59
+        </div>
         <div id="row">
             <div class="modeCircle" id="fiveMinute" onclick="fiveMinute()">
                 5 Minutes
@@ -80,33 +104,169 @@
 
     <script> 
 
-        let width = 10
-        let height = 20
-        let seconds = 10
+        let width = 12
+        let height = 25
+        let seconds = 0
+        let mode = 'in'
+        let tminutes = 5
+        let tseconds = 0
 
-        fiveMinute = () => {
+        function done(){
+            document.getElementById('fiveMinute').style.display = "flex"
+            document.getElementById('tenMinute').style.display = "flex"
+            document.getElementById('fifteenMinute').style.display = "flex"
+            document.getElementById('twentyFiveMinute').style.display = "flex"
+
+            document.getElementById('circle').style.display = 'none'
+            document.getElementById('fixedElement').style.display = 'none'
+
+            clearTimeout(animate);
+
+            clearTimeout(timeCount);
+        }
+
+        function timer() {
+            if(tseconds > 0){
+                tseconds--;
+                document.getElementById('fixedElement').innerHTML = tminutes + ":" + tseconds;
+            }else if(tseconds <= 0){
+                tminutes--;
+                tseconds = 59;
+                document.getElementById('fixedElement').innerHTML = tminutes + ":" + tseconds;
+            }
+        
+            if(tminutes < 0){
+              tminutes = 0;
+              tseconds = 0;
+              document.getElementById('circle').innerHTML = tminutes + ":" + tseconds;
+              done();
+            }
+
+            if(tseconds < 10){
+                document.getElementById('fixedElement').innerHTML = tminutes + ":0" + tseconds;
+            }
+        }
+
+        function breatheIn() {
+                document.getElementById('circle').innerHTML = "Breathe In"
+                    if(seconds < 1400){
+                        height = height + 0.01
+                        width = width + 0.01
+                        document.getElementById('circle').style.width = width + '%';
+                        document.getElementById('circle').style.height = height + '%';
+                        seconds++
+                    }if(seconds >= 1400){
+                        mode = 'holdOne'
+                        seconds = 0
+                    }
+        }
+
+        function holdOne(){
+                    if(seconds < 900){
+                        seconds++
+                    }if(seconds >= 900){
+                        mode = 'out'
+                        seconds = 0
+                    }
+        }
+
+        function breatheOut() {
+                document.getElementById('circle').innerHTML = "Breathe Out"
+                    if(seconds < 2800){
+                        height = height - 0.005
+                        width = width - 0.005
+                        document.getElementById('circle').style.width = width + '%';
+                        document.getElementById('circle').style.height = height + '%';
+                        seconds++
+                    }if(seconds >= 2800){
+                        mode = 'holdTwo'
+                        seconds = 0
+                    }
+        }
+  
+        function holdTwo(){
+                    if(seconds < 900){
+                        seconds++
+                    }if(seconds >= 900){
+                        mode = 'in'
+                        seconds = 0
+                    }
+        }
+
+        function animation() {
+                if(mode == 'in'){
+                    breatheIn();
+                }
+                
+                if(mode == 'holdOne'){
+                    holdOne();
+                }
+
+                if(mode == 'out'){
+                    breatheOut();
+                }
+
+                if(mode == 'holdTwo'){
+                    holdTwo();
+                }
+        }
+        
+        function showMed() {
             document.getElementById('fiveMinute').style.display = "none"
             document.getElementById('tenMinute').style.display = "none"
             document.getElementById('fifteenMinute').style.display = "none"
             document.getElementById('twentyFiveMinute').style.display = "none"
 
-            document.getElementById('circle').style.width = width + '%';
-            document.getElementById('circle').style.height = height + '%';
+            document.getElementById('circle').style.display = 'flex'
+            document.getElementById('fixedElement').style.display = 'flex'
+        }
 
-            function animation() {
-                if(seconds < 10){
-                    height++
-                    width++
-                    document.getElementById('circle').innerHTML = width + "%"
-                    document.getElementById('circle').innerHTML = height + "%"
-                    seconds++
-                }else if(seconds >= 10){
-                    seconds = 10;
-                    clearTimeout(animationTime)
-                }
-            }
+        function meditationCourse() {
+            timer();
 
-            let animationTime = setInterval(animation, 1000)
+            showMed();
+
+            animation();
+
+            let animate = setInterval(animation, 1)
+
+            let timeCount = setInterval(timer,1000)
+        }
+
+        fiveMinute = () => {
+            
+            tminutes = 5
+            tseconds = 0
+
+            meditationCourse();
+
+        }
+
+        tenMinute = () => {
+            
+            tminutes = 10
+            tseconds = 0
+
+            meditationCourse();
+
+        }
+
+        fifteenMinute = () => {
+            
+            tminutes = 15
+            tseconds = 0
+
+            meditationCourse();
+
+        }
+
+        twentyFiveMinute = () => {
+            
+            tminutes = 25
+            tseconds = 0
+
+            meditationCourse();
+
         }
 
     </script>
