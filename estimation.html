@@ -30,6 +30,7 @@
             display:flex;
             flex-direction: row;
             align-items: center;
+            overflow: hidden;
         }
         #containerTwo {
             height: 90vh;
@@ -47,6 +48,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            margin: 1vw;
         }
         #numberContainer {
             height: 90vh;
@@ -56,7 +58,11 @@
             align-items: center;
         }
         #graphNumber {
-            margin-top: 10vh;
+            margin: auto;
+            font-size: 1.4vw;
+        }
+        #numberGap {
+            height: 14vh;
         }
         #bigBox {
             height: 10px;
@@ -81,24 +87,37 @@
             font-weight: bold;
         }
         #mouseBox {
-            --y: 50;
-
+            position: fixed;
             width: 16vw;
             height: 4vh;
             background-color: #333333;
+            display: none;
+            transition: 0.1s;
+            pointer-events: none;
+            margin-left: 2vw;
+            opacity: 50%;
+        }
+        #container:hover > #mouseBox {
+            display: block;
         }
     </style>
   </head>
 <body>
-    <div id="container">
+    <div id="container" onclick="submit()">
         <div id="numberContainer">
             <p id="graphNumber">50</p>
+            <div id="numberGap"></div>
             <p id="graphNumber">40</p>
+            <div id="numberGap"></div>
             <p id="graphNumber">30</p>
+            <div id="numberGap"></div>
             <p id="graphNumber">20</p>
+            <div id="numberGap"></div>
             <p id="graphNumber">10</p>
+            <div id="numberGap"></div>
             <p id="graphNumber">0</p>
         </div>
+        <div><br></div>
         <div id="verticalLine">
             <div id="bigBox"></div>
             <div id="dot"></div><div id="dot"></div><div id="dot"></div><div id="dot"></div>
@@ -134,19 +153,20 @@
 
         let box = document.getElementById('mouseBox');
 
-        var mousex = 0;
-        var mousey = 0;
+        let container = document.getElementById('container');
 
-       // Listens for where the mouse is hovering
-       function mouse(){
-           mousex = event.clientX;
-           mousey = event.clientY;
+        document.addEventListener('mousemove', mouseHover)
 
-           box.style.height = mousey;
-           console.log(mousey);
-       }
+        function mouseHover(e) {
+            var y = e.clientY;
+            box.style.top = y + 'px';
+            console.log(y);
+        }
 
-       document.addEventListener('mousemove', mouse);
+        submit = () => {
+            document.removeEventListener('mousemove', mouseHover);
+            box.style.display = 'block';
+        };
 
        let numOne = (Math.random() * 16).toFixed(2)
        let numTwo = (Math.random() * 16).toFixed(2)
