@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" onclick="jump()">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Flappy Bird</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        #container {
+            width: 400px;
+            height: 500px;
+            border: 1px solid black;
+            overflow: hidden;
+            margin: auto;
+            background-color: #00E6FF;
+        }
+        #block {
+            width: 50px;
+            height: 500px;
+            background-color: green;
+            position: relative;
+            left: 400px;
+            animation: block 2s infinite linear;
+        }
+        @keyframes block {
+            0%{left: 400px}
+            100%{left: -50px}
+        }
+        #hole {
+            width: 50px;
+            height: 150px;
+            background-color: #00E6FF;
+            position: relative;
+            left: 400px;
+            top: -500px;
+            animation: block 2s infinite linear;
+        }
+        #control {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 100px;
+        }
+        #bird {
+            width: 40px;
+            height: 40px;
+            margin: auto;
+        }
+    </style>
+    <body>
+        <div id="container">
+            <div id="block"></div>
+            <div id="hole"></div>
+            <div id="control"><img id="bird" src="https://i.ibb.co/PYdGqM6/k8qlf-Cbm-T4ix5s-MIUPum-ae362eb4f25ccf2b70c541fb2e96e.png"></div>
+        </div>
+    
+        <script>
+    
+            var block = document.getElementById('block');
+            var hole = document.getElementById('hole');
+            var control = document.getElementById('control');
+
+                var jumping = 0;
+                var counter = 0;
+
+                hole.addEventListener('animationiteration', () => {
+                    var random = -((Math.random() * 300)+ 150);
+                    var top = (random * 100) + 150;
+                    hole.style.top = random + "px";
+                    counter++;
+                })
+
+                setInterval(function(){
+                    var characterTop = parseInt(window.getComputedStyle(control).getPropertyValue("top"));
+                    if(jumping == 0){
+                        control.style.top = (characterTop+3)+"px";
+                    }
+                    var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+                    var holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
+                    var cTop = -(500 - characterTop);
+
+                    if((characterTop > 480) || ((blockLeft < 20)&&(blockLeft>-50)&&((cTop < holeTop)||(cTop > holeTop + 130)))){
+                        alert("Gameover. Score: " + (counter-1));
+                        counter=0;
+                        control.style.top = 100 + 'px';
+                    }
+                },10);
+
+                function jump() {
+                    jumping = 1;
+                    let jumpCount = 0
+                    var jumpInterval = setInterval(function(){
+                        var characterTop = parseInt(window.getComputedStyle(control).getPropertyValue("top"));
+                        if((characterTop > 6) && (jumpCount < 15)){
+                            control.style.top = (characterTop - 5) + "px";
+                        }
+                        if(jumpCount > 20){
+                            clearInterval(jumpInterval);
+                            jumping = 0;
+                            jumpCount = 0;
+                        }
+                        jumpCount++;
+                    },10);
+                }
+            
+        </script>
+      </body>
+</html>
