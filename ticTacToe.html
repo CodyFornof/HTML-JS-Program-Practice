@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Tic-Tac-Toe</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.ibb.co/2KF04FZ/personal-logo-3.jpg"/>
+    <style>
+        #mode {
+            margin: auto;
+            font-weight: bold;
+            color: red;
+            font-size: 50px;
+            font-family: Marker Felt, fantasy
+        }
+        #openingContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            margin: auto;
+        }
+        .opening {
+            height: 100px;
+            width: 100px;
+            border: 4px solid black;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+    <body>
+            <div id="openingContainer">
+                <div class="opening" id="one" onclick="one()"></div>
+                <div class="opening" id="two" onclick="two()"></div>
+                <div class="opening" id="three" onclick="three()"></div>
+            </div>
+            <div id="openingContainer">
+                <div class="opening" id="four" onclick="four()"></div>
+                <div class="opening" id="five" onclick="five()"></div>
+                <div class="opening" id="six" onclick="six()"></div>
+            </div>
+            <div id="openingContainer">
+                <div class="opening" id="seven" onclick="seven()"></div>
+                <div class="opening" id="eight" onclick="eight()"></div>
+                <div class="opening" id="nine" onclick="nine()"></div>
+            </div>
+    
+        <script>
+    
+           let one = document.getElementById('one');
+           let two = document.getElementById('two');
+           let three = document.getElementById('three');
+           let four = document.getElementById('four');
+           let five = document.getElementById('five');
+           let six = document.getElementById('six');
+           let seven = document.getElementById('seven');
+           let eight = document.getElementById('eight');
+           let nine = document.getElementById('nine');
+
+           let mode = 'x';
+
+           one = () => {
+            if((document.getElementById('one').innerHTML = 'X')||(document.getElementById('one').innerHTML = 'O')){
+                    console.log('button not initiated')
+                }else{
+                    if(mode == 'x'){
+                        document.getElementById('one').innerHTML = 'X';
+                        mode = 'o'
+                        console.log('button initiated')
+                    }else if(mode == 'o'){
+                        document.getElementById('one').innerHTML = 'O';
+                        mode = 'x'
+                        console.log('button initiated')
+                    }
+                }
+            }
+
+            two = () => {
+                if((document.getElementById('two').innerHTML = 'X')||(document.getElementById('two').innerHTML = 'O')){
+                    console.log('button not initiated')
+                }else{
+                    if(mode == 'x'){
+                        document.getElementById('two').innerHTML = 'X';
+                        mode = 'o'
+                        console.log('button initiated')
+                    }else if(mode == 'o'){
+                        document.getElementById('two').innerHTML = 'O';
+                        mode = 'x'
+                        console.log('button initiated')
+                    }
+                }
+            }
+
+            three = () => {
+                if((document.getElementById('three').innerHTML = 'X')||(document.getElementById('three').innerHTML = 'O')){
+                    console.log('button not initiated')
+                }else{
+                    if(mode == 'x'){
+                        document.getElementById('three').innerHTML = 'X';
+                        mode = 'o'
+                        console.log('button initiated')
+                    }else if(mode == 'o'){
+                        document.getElementById('three').innerHTML = 'O';
+                        mode = 'x'
+                        console.log('button initiated')
+                    }
+                }
+            }
+
+            four = () => {
+                if((document.getElementById('four').innerHTML = 'X')||(document.getElementById('four').innerHTML = 'O')){
+                    console.log('button not initiated')
+                }else{
+                    if(mode == 'x'){
+                        document.getElementById('four').innerHTML = 'X';
+                        mode = 'o'
+                        console.log('button initiated')
+                    }else if(mode == 'o'){
+                        document.getElementById('four').innerHTML = 'O';
+                        mode = 'x'
+                        console.log('button initiated')
+                    }
+                }
+            }
+
+            five = () => {
+                if((document.getElementById('five').innerHTML = 'X')||(document.getElementById('five').innerHTML = 'O')){
+                    console.log('button not initiated')
+                }else{
+                    if(mode == 'x'){
+                        document.getElementById('five').innerHTML = 'X';
+                        mode = 'o'
+                        console.log('button initiated')
+                    }else if(mode == 'o'){
+                        document.getElementById('five').innerHTML = 'O';
+                        mode = 'x'
+                        console.log('button initiated')
+                    }
+                }
+            }
+
+            six = () => {
+                if((document.getElementById('six').innerHTML = 'X')||(document.getElementById('six').innerHTML = 'O')){
+                    console.log('button not initiated')
+                }else{
+                    if(mode == 'x'){
+                        document.getElementById('six').innerHTML = 'X';
+                        mode = 'o'
+                        console.log('button initiated')
+                    }else if(mode == 'o'){
+                        document.getElementById('six').innerHTML = 'O';
+                        mode = 'x'
+                        console.log('button initiated')
+                    }
+                }
+            }
+
+            seven = () => {
+                if((document.getElementById('seven').innerHTML = 'X')||(document.getElementById('seven').innerHTML = 'O')){
+                    console.log('button not initiated')
+                }else{
+                    if(mode == 'x'){
+                        document.getElementById('seven').innerHTML = 'X';
+                        mode = 'o'
+                        console.log('button initiated')
+                    }else if(mode == 'o'){
+                        document.getElementById('seven').innerHTML = 'O';
+                        mode = 'x'
+                        console.log('button initiated')
+                    }
+                }
+            }
+
+            eight = () => {
+                if((document.getElementById('eight').innerHTML = 'X')||(document.getElementById('eight').innerHTML = 'O')){
+                    console.log('button not initiated')
+                }else{
+                    if(mode == 'x'){
+                        document.getElementById('eight').innerHTML = 'X';
+                        mode = 'o'
+                        console.log('button initiated')
+                    }else if(mode == 'o'){
+                        document.getElementById('eight').innerHTML = 'O';
+                        mode = 'x'
+                        console.log('button initiated')
+                    }
+                }
+            }
+
+            nine = () => {
+                if((document.getElementById('nine').innerHTML = 'X')||(document.getElementById('nine').innerHTML = 'O')){
+                    console.log('button not initiated')
+                }else{
+                    if(mode == 'x'){
+                        document.getElementById('nine').innerHTML = 'X';
+                        mode = 'o'
+                        console.log('button initiated')
+                    }else if(mode == 'o'){
+                        document.getElementById('nine').innerHTML = 'O';
+                        mode = 'x'
+                        console.log('button initiated')
+                    }
+                }
+            }
+
+        </script>
+      </body>
+</html>
