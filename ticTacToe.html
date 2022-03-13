@@ -66,149 +66,158 @@
            let eight = document.getElementById('eight');
            let nine = document.getElementById('nine');
 
+           var oneMode, twoMode, threeMode, fourMode, fiveMode;
+                oneMode = twoMode = threeMode = fourMode = fiveMode = sixMode = sevenMode = eightMode = nineMode='off';
+
+            console.log(oneMode)
+
            let mode = 'x';
 
+           console.log(fiveMode);
+
            one = () => {
-            if((document.getElementById('one').innerHTML = 'X')||(document.getElementById('one').innerHTML = 'O')){
-                    console.log('button not initiated')
-                }else{
-                    if(mode == 'x'){
-                        document.getElementById('one').innerHTML = 'X';
-                        mode = 'o'
-                        console.log('button initiated')
-                    }else if(mode == 'o'){
-                        document.getElementById('one').innerHTML = 'O';
-                        mode = 'x'
-                        console.log('button initiated')
-                    }
+                if(oneMode == 'on'){
+                    console.log('Button Not Initited')
+                }
+                if((oneMode == 'off')&&(mode == 'x')){
+                    document.getElementById('one').innerHTML = 'X'
+                    mode = 'y'
+                    oneMode = 'on'
+                }
+                if((oneMode == 'off')&&(mode == 'y')){
+                    document.getElementById('one').innerHTML = 'Y'
+                    mode = 'x'
+                    oneMode = 'on'
                 }
             }
 
             two = () => {
-                if((document.getElementById('two').innerHTML = 'X')||(document.getElementById('two').innerHTML = 'O')){
-                    console.log('button not initiated')
-                }else{
-                    if(mode == 'x'){
-                        document.getElementById('two').innerHTML = 'X';
-                        mode = 'o'
-                        console.log('button initiated')
-                    }else if(mode == 'o'){
-                        document.getElementById('two').innerHTML = 'O';
-                        mode = 'x'
-                        console.log('button initiated')
-                    }
+                if(twoMode == 'on'){
+                    console.log('Button Not Initited')
                 }
+                if((twoMode == 'off')&&(mode == 'x')){
+                    document.getElementById('two').innerHTML = 'X'
+                    mode = 'y'
+                    twoMode = 'on'
+                }
+                if((twoMode == 'off')&&(mode == 'y')){
+                    document.getElementById('two').innerHTML = 'Y'
+                    mode = 'x'
+                    twoMode = 'on'
+                }
+                console.log('two initited')
             }
 
             three = () => {
-                if((document.getElementById('three').innerHTML = 'X')||(document.getElementById('three').innerHTML = 'O')){
-                    console.log('button not initiated')
-                }else{
-                    if(mode == 'x'){
-                        document.getElementById('three').innerHTML = 'X';
-                        mode = 'o'
-                        console.log('button initiated')
-                    }else if(mode == 'o'){
-                        document.getElementById('three').innerHTML = 'O';
-                        mode = 'x'
-                        console.log('button initiated')
-                    }
+                if(threeMode == 'on'){
+                    console.log('Button Not Initited')
+                }
+                if((threeMode == 'off')&&(mode == 'x')){
+                    document.getElementById('three').innerHTML = 'X'
+                    mode = 'y'
+                    threeMode = 'on'
+                }
+                if((threeMode == 'off')&&(mode == 'y')){
+                    document.getElementById('three').innerHTML = 'Y'
+                    mode = 'x'
+                    threeMode = 'on'
                 }
             }
 
             four = () => {
-                if((document.getElementById('four').innerHTML = 'X')||(document.getElementById('four').innerHTML = 'O')){
-                    console.log('button not initiated')
-                }else{
-                    if(mode == 'x'){
-                        document.getElementById('four').innerHTML = 'X';
-                        mode = 'o'
-                        console.log('button initiated')
-                    }else if(mode == 'o'){
-                        document.getElementById('four').innerHTML = 'O';
-                        mode = 'x'
-                        console.log('button initiated')
-                    }
+                if(fourMode == 'on'){
+                    console.log('Button Not Initited')
+                }
+                if((fourMode == 'off')&&(mode == 'x')){
+                    document.getElementById('four').innerHTML = 'X'
+                    mode = 'y'
+                    fourMode = 'on'
+                }
+                if((fourMode == 'off')&&(mode == 'y')){
+                    document.getElementById('four').innerHTML = 'Y'
+                    mode = 'x'
+                    fourMode = 'on'
                 }
             }
 
             five = () => {
-                if((document.getElementById('five').innerHTML = 'X')||(document.getElementById('five').innerHTML = 'O')){
-                    console.log('button not initiated')
-                }else{
-                    if(mode == 'x'){
-                        document.getElementById('five').innerHTML = 'X';
-                        mode = 'o'
-                        console.log('button initiated')
-                    }else if(mode == 'o'){
-                        document.getElementById('five').innerHTML = 'O';
-                        mode = 'x'
-                        console.log('button initiated')
-                    }
+                if(fiveMode == 'on'){
+                    console.log('Button Not Initited')
+                }
+                if((fiveMode == 'off')&&(mode == 'x')){
+                    document.getElementById('five').innerHTML = 'X'
+                    mode = 'y'
+                    fiveMode = 'on'
+                }
+                if((fiveMode == 'off')&&(mode == 'y')){
+                    document.getElementById('five').innerHTML = 'Y'
+                    mode = 'x'
+                    fiveMode = 'on'
                 }
             }
 
             six = () => {
-                if((document.getElementById('six').innerHTML = 'X')||(document.getElementById('six').innerHTML = 'O')){
-                    console.log('button not initiated')
-                }else{
-                    if(mode == 'x'){
-                        document.getElementById('six').innerHTML = 'X';
-                        mode = 'o'
-                        console.log('button initiated')
-                    }else if(mode == 'o'){
-                        document.getElementById('six').innerHTML = 'O';
-                        mode = 'x'
-                        console.log('button initiated')
-                    }
+                if(sixMode == 'on'){
+                    console.log('Button Not Initited')
+                }
+                if((sixMode == 'off')&&(mode == 'x')){
+                    document.getElementById('six').innerHTML = 'X'
+                    mode = 'y'
+                    sixMode = 'on'
+                }
+                if((sixMode == 'off')&&(mode == 'y')){
+                    document.getElementById('six').innerHTML = 'Y'
+                    mode = 'x'
+                    sixMode = 'on'
                 }
             }
 
             seven = () => {
-                if((document.getElementById('seven').innerHTML = 'X')||(document.getElementById('seven').innerHTML = 'O')){
-                    console.log('button not initiated')
-                }else{
-                    if(mode == 'x'){
-                        document.getElementById('seven').innerHTML = 'X';
-                        mode = 'o'
-                        console.log('button initiated')
-                    }else if(mode == 'o'){
-                        document.getElementById('seven').innerHTML = 'O';
-                        mode = 'x'
-                        console.log('button initiated')
-                    }
+                if(sevenMode == 'on'){
+                    console.log('Button Not Initited')
+                }
+                if((sevenMode == 'off')&&(mode == 'x')){
+                    document.getElementById('seven').innerHTML = 'X'
+                    mode = 'y'
+                    sevenMode = 'on'
+                }
+                if((sevenMode == 'off')&&(mode == 'y')){
+                    document.getElementById('seven').innerHTML = 'Y'
+                    mode = 'x'
+                    sevenMode = 'on'
                 }
             }
 
             eight = () => {
-                if((document.getElementById('eight').innerHTML = 'X')||(document.getElementById('eight').innerHTML = 'O')){
-                    console.log('button not initiated')
-                }else{
-                    if(mode == 'x'){
-                        document.getElementById('eight').innerHTML = 'X';
-                        mode = 'o'
-                        console.log('button initiated')
-                    }else if(mode == 'o'){
-                        document.getElementById('eight').innerHTML = 'O';
-                        mode = 'x'
-                        console.log('button initiated')
-                    }
+                if(eightMode == 'on'){
+                    console.log('Button Not Initited')
+                }
+                if((eightMode == 'off')&&(mode == 'x')){
+                    document.getElementById('eight').innerHTML = 'X'
+                    mode = 'y'
+                    eightMode = 'on'
+                }
+                if((eightMode == 'off')&&(mode == 'y')){
+                    document.getElementById('eight').innerHTML = 'Y'
+                    mode = 'x'
+                    eightMode = 'on'
                 }
             }
 
             nine = () => {
-                if((document.getElementById('nine').innerHTML = 'X')||(document.getElementById('nine').innerHTML = 'O')){
-                    console.log('button not initiated')
-                }else{
-                    if(mode == 'x'){
-                        document.getElementById('nine').innerHTML = 'X';
-                        mode = 'o'
-                        console.log('button initiated')
-                    }else if(mode == 'o'){
-                        document.getElementById('nine').innerHTML = 'O';
-                        mode = 'x'
-                        console.log('button initiated')
-                    }
+                if(nineMode == 'on'){
+                    console.log('Button Not Initited')
+                }
+                if((nineMode == 'off')&&(mode == 'x')){
+                    document.getElementById('nine').innerHTML = 'X'
+                    mode = 'y'
+                    nineMode = 'on'
+                }
+                if((nineMode == 'off')&&(mode == 'y')){
+                    document.getElementById('nine').innerHTML = 'Y'
+                    mode = 'x'
+                    nineMode = 'on'
+
                 }
             }
 
