@@ -27,14 +27,16 @@
             align-items: center;
             justify-content: center;
             flex-direction: row;
+            cursor: default;
             margin: auto;
         }
         .opening {
             height: 100px;
             width: 100px;
             border: 4px solid black;
-            font-size: 30px;
-            font-weight: bold;
+            font-size: 50px;
+            font-family: fantasy;
+            text-align: center;
         }
     </style>
     <body>
@@ -56,15 +58,15 @@
     
         <script>
     
-           let one = document.getElementById('one');
-           let two = document.getElementById('two');
-           let three = document.getElementById('three');
-           let four = document.getElementById('four');
-           let five = document.getElementById('five');
-           let six = document.getElementById('six');
-           let seven = document.getElementById('seven');
-           let eight = document.getElementById('eight');
-           let nine = document.getElementById('nine');
+           let one = document.getElementById('one').innerHTML;
+           let two = document.getElementById('two').innerHTML;
+           let three = document.getElementById('three').innerHTML;
+           let four = document.getElementById('four').innerHTML;
+           let five = document.getElementById('five').innerHTML;
+           let six = document.getElementById('six').innerHTML;
+           let seven = document.getElementById('seven').innerHTML;
+           let eight = document.getElementById('eight').innerHTML;
+           let nine = document.getElementById('nine').innerHTML;
 
            var oneMode, twoMode, threeMode, fourMode, fiveMode;
                 oneMode = twoMode = threeMode = fourMode = fiveMode = sixMode = sevenMode = eightMode = nineMode='off';
@@ -81,11 +83,13 @@
                 }
                 if((oneMode == 'off')&&(mode == 'x')){
                     document.getElementById('one').innerHTML = 'X'
+                    document.getElementById('one').style.color = 'orange';
                     mode = 'y'
                     oneMode = 'on'
                 }
                 if((oneMode == 'off')&&(mode == 'y')){
                     document.getElementById('one').innerHTML = 'Y'
+                    document.getElementById('one').style.color = 'cyan';
                     mode = 'x'
                     oneMode = 'on'
                 }
@@ -97,11 +101,13 @@
                 }
                 if((twoMode == 'off')&&(mode == 'x')){
                     document.getElementById('two').innerHTML = 'X'
+                    document.getElementById('two').style.color = 'orange';
                     mode = 'y'
                     twoMode = 'on'
                 }
                 if((twoMode == 'off')&&(mode == 'y')){
                     document.getElementById('two').innerHTML = 'Y'
+                    document.getElementById('two').style.color = 'cyan';
                     mode = 'x'
                     twoMode = 'on'
                 }
@@ -114,11 +120,13 @@
                 }
                 if((threeMode == 'off')&&(mode == 'x')){
                     document.getElementById('three').innerHTML = 'X'
+                    document.getElementById('three').style.color = 'orange';
                     mode = 'y'
                     threeMode = 'on'
                 }
                 if((threeMode == 'off')&&(mode == 'y')){
                     document.getElementById('three').innerHTML = 'Y'
+                    document.getElementById('three').style.color = 'cyan';
                     mode = 'x'
                     threeMode = 'on'
                 }
@@ -130,11 +138,13 @@
                 }
                 if((fourMode == 'off')&&(mode == 'x')){
                     document.getElementById('four').innerHTML = 'X'
+                    document.getElementById('four').style.color = 'orange';
                     mode = 'y'
                     fourMode = 'on'
                 }
                 if((fourMode == 'off')&&(mode == 'y')){
                     document.getElementById('four').innerHTML = 'Y'
+                    document.getElementById('four').style.color = 'cyan';
                     mode = 'x'
                     fourMode = 'on'
                 }
@@ -146,11 +156,13 @@
                 }
                 if((fiveMode == 'off')&&(mode == 'x')){
                     document.getElementById('five').innerHTML = 'X'
+                    document.getElementById('five').style.color = 'orange';
                     mode = 'y'
                     fiveMode = 'on'
                 }
                 if((fiveMode == 'off')&&(mode == 'y')){
                     document.getElementById('five').innerHTML = 'Y'
+                    document.getElementById('five').style.color = 'cyan';
                     mode = 'x'
                     fiveMode = 'on'
                 }
@@ -162,11 +174,13 @@
                 }
                 if((sixMode == 'off')&&(mode == 'x')){
                     document.getElementById('six').innerHTML = 'X'
+                    document.getElementById('six').style.color = 'orange';
                     mode = 'y'
                     sixMode = 'on'
                 }
                 if((sixMode == 'off')&&(mode == 'y')){
                     document.getElementById('six').innerHTML = 'Y'
+                    document.getElementById('six').style.color = 'cyan';
                     mode = 'x'
                     sixMode = 'on'
                 }
@@ -178,11 +192,13 @@
                 }
                 if((sevenMode == 'off')&&(mode == 'x')){
                     document.getElementById('seven').innerHTML = 'X'
+                    document.getElementById('seven').style.color = 'orange';
                     mode = 'y'
                     sevenMode = 'on'
                 }
                 if((sevenMode == 'off')&&(mode == 'y')){
                     document.getElementById('seven').innerHTML = 'Y'
+                    document.getElementById('seven').style.color = 'cyan';
                     mode = 'x'
                     sevenMode = 'on'
                 }
@@ -194,11 +210,13 @@
                 }
                 if((eightMode == 'off')&&(mode == 'x')){
                     document.getElementById('eight').innerHTML = 'X'
+                    document.getElementById('eight').style.color = 'orange';
                     mode = 'y'
                     eightMode = 'on'
                 }
                 if((eightMode == 'off')&&(mode == 'y')){
                     document.getElementById('eight').innerHTML = 'Y'
+                    document.getElementById('eight').style.color = 'cyan';
                     mode = 'x'
                     eightMode = 'on'
                 }
@@ -210,11 +228,13 @@
                 }
                 if((nineMode == 'off')&&(mode == 'x')){
                     document.getElementById('nine').innerHTML = 'X'
+                    document.getElementById('nine').style.color = 'orange';
                     mode = 'y'
                     nineMode = 'on'
                 }
                 if((nineMode == 'off')&&(mode == 'y')){
                     document.getElementById('nine').innerHTML = 'Y'
+                    document.getElementById('nine').style.color = 'cyan';
                     mode = 'x'
                     nineMode = 'on'
 
