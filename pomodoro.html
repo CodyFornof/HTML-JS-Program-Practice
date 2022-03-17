@@ -20,12 +20,22 @@
             width: 90vw;
             background-color: #333333; 
             display:flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: center;
             align-items: center;
             margin: auto;
         }
-        #timer {
+        #modeContainer {
+          height: 90vh;
+          width: 28vw;
+          background-color: blue;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: auto;
+        }
+        p {
           color: white;
           font-size: 6vw;
           font-weight: bold;
@@ -56,11 +66,19 @@
   </head>
   <body>
     <div id="container">
-       <p id="timer">25:00</p>
-       <button id="buttonWork" onclick="btn()">Start Working</button>
-       <button id="buttonBreak" onclick = "btnBreak()">Start Break</button>
-       <button id="buttonLongBreak" onclick = "btnLongBreak()">Start Long Break</button>
-       <button id="endTimer" onclick = "endTimer()">End Timer</button>
+      <div id="modeContainer">
+        <p id="shortTimer">5:00</p>
+        <button id="buttonBreak" onclick = "btnBreak()">Start Short Break</button>
+      </div>
+      <div id="modeContainer">
+        <p id="workTimer">25:00</p>
+        <button id="buttonWork" onclick="btn()">Start Working</button>
+        <button id="endTimer" onclick = "endTimer()">End Timer</button>
+      </div>
+      <div id="modeContainer">
+        <p id="longTimer">15:00</p>
+        <button id="buttonLongBreak" onclick = "btnLongBreak()">Start Long Break</button>
+      </div>
     </div>
 
     <script>
@@ -73,9 +91,13 @@
 
       let session = 'work'
 
-      let time = document.getElementById('timer');
+      let workTimer = document.getElementById('buttonWork');
+      let shortTimer = document.getElementById('buttonBreak');
+      let longTimer = document.getElementById('buttonLongBreak');
 
-          count = () => {
+
+
+          count = (time) => {
 
             if(seconds > 0){
                 seconds--;
@@ -158,11 +180,11 @@
           endTimer = () => {
               minutes = 00;
               seconds = 00;
-              time.innerHTML = minutes + ":" + seconds;
 
               document.getElementById('buttonWork').style.display = "block";
               document.getElementById('buttonBreak').style.display = "block";
               document.getElementById('buttonLongBreak').style.display = "block";
+              document.getElementById('endTimer').style.display = "none";
               document.getElementById('container').style.backgroundColor = "#333333";
               clearInterval(i);
           }
