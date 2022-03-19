@@ -83,112 +83,61 @@
 
     <script>
 
-      let minutes = 25;
+    let minutes = 0;
+    let seconds = 0;
 
-      let seconds = 0;
+    let zero = '0';
 
-      let zero = '0'; 
+    let time;
 
-      let session = 'work'
+    count = () => {
+      if(seconds > 0){
+          seconds--;
+          time = minutes + ":" + seconds;
+      }else if(seconds <= 0){
+          minutes--;
+          seconds = 59;
+          time = minutes + ":" + seconds;
+      }
 
-      let workTimer = document.getElementById('buttonWork');
-      let shortTimer = document.getElementById('buttonBreak');
-      let longTimer = document.getElementById('buttonLongBreak');
+      if(minutes < 10 && seconds < 10){
+            time = zero + minutes + ":" + zero + seconds;
+        }else if(minutes < 10){
+            time = zero + minutes + ":" + seconds;
+        }else if(seconds < 10){
+            time = minutes + ":" + zero + seconds;
+        }else{
+            time = minutes + ":" + seconds;
+        }
+    }
+
+    let i = setInterval(i, 1000);
+
+    btn = () => {
+      document.getElementById('container').style.backgroundColor = "#B03A2E";
+
+      minutes = 25;
+      seconds = 0;
+
+      reloadWork() {
+        document.getElementById('workTimer').innerHTML = time
+      }
+
+      let t = setInterval(t, 10);
+
+    }
+
+    if(minutes < 0){
+      minutes = 0;
+      seconds = 0;
+
+      clearInterval(i);
+      clearInterval(t);
+
+      document.getElementById('workTimer').innerHTML = "25:00"
+    }
 
 
-
-          count = (time) => {
-
-            if(seconds > 0){
-                seconds--;
-                time.innerHTML = minutes + ":" + seconds;
-            }else if(seconds <= 0){
-                minutes--;
-                seconds = 59;
-                time.innerHTML = minutes + ":" + seconds;
-            }
-
-            if(minutes < 10 && seconds < 10){
-              time.innerHTML = zero + minutes + ":" + zero + seconds;
-            }else if(minutes < 10){
-              time.innerHTML = zero + minutes + ":" + seconds;
-            }else if(seconds < 10){
-              time.innerHTML = minutes + ":" + zero + seconds;
-            }else{
-              time.innerHTML = minutes + ":" + seconds;
-            }
-
-            if(minutes < 0){
-              minutes = 0;
-              seconds = 0;
-              time.innerHTML = zero + minutes + ":" + zero + seconds;
-
-                document.getElementById('buttonWork').style.display = "block";
-                document.getElementById('buttonBreak').style.display = "block";
-                document.getElementById('buttonLongBreak').style.display = "block";
-                document.getElementById('endTimer').style.display = "none";
-                document.getElementById('container').style.backgroundColor = "#333333";
-                clearInterval(i);
-
-            }}  
-
-            removeButtons = () => {
-              document.getElementById('buttonWork').style.display = "none";
-              document.getElementById('buttonBreak').style.display = "none";
-              document.getElementById('buttonLongBreak').style.display = "none";
-              document.getElementById('endTimer').style.display = "block";
-            }
-
-      btn = () => {
-            
-            removeButtons();
-            document.getElementById('container').style.backgroundColor = "#B03A2E";
-
-            minutes = 25;
-            seconds = 0;
-
-            var i=setInterval(count,1000); 
-
-       } 
-
-       btnBreak = () => {
-
-        removeButtons();
-        document.getElementById('container').style.backgroundColor = "#0E6251";
-
-        minutes = 5;
-        seconds = 0;
-        time.innerHTML = zero + minutes + ":" + zero + seconds;
-
-        var i=setInterval(count,1000); 
-
-       }
-
-       btnLongBreak = () => {
-
-          removeButtons();
-          document.getElementById('container').style.backgroundColor = "#1B2631";
-
-          minutes = 15;
-          seconds = 0;
-          time.innerHTML = zero + minutes + ":" + zero + seconds;
-
-          var i=setInterval(count,1000); 
-
-          }
-
-          endTimer = () => {
-              minutes = 00;
-              seconds = 00;
-
-              document.getElementById('buttonWork').style.display = "block";
-              document.getElementById('buttonBreak').style.display = "block";
-              document.getElementById('buttonLongBreak').style.display = "block";
-              document.getElementById('endTimer').style.display = "none";
-              document.getElementById('container').style.backgroundColor = "#333333";
-              clearInterval(i);
-          }
-        
     </script>
   </body>
 </html>
