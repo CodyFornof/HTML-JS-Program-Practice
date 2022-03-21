@@ -59,11 +59,22 @@
             justify-content: center;
             align-items: center;
         }
+        .count {
+          color: #f0f6fc; 
+          font-size: 3vw;
+          font-weight: bold;
+          margin: auto;
+        }
         
     </style>
   </head>
   <body>
     <div id="container">
+      <div id="buttonContainer">
+        <p class="count" id="breakCount">0</p>
+        <p class="count" id="workCount">0</p>
+        <p class="count" id="longBreakCount">0</p>
+      </div>
       <div id="buttonContainer">
         <button id="buttonBreak" onclick = "btnBreak()">Start Break</button>
         <button id="buttonWork" onclick="btn()">Start Working</button>
@@ -81,6 +92,15 @@
       let seconds = 0;
 
       let zero = '0'; 
+
+      let workCount = 0;
+      let workDisplay = document.getElementById('workCount')
+
+      let breakCount = 0;
+      let breakDisplay = document.getElementById('breakCount')
+
+      let longBreakCount = 0;
+      let longBreakDisplay = document.getElementById('longBreakCount')
 
       let session = 'work'
 
@@ -117,6 +137,9 @@
                 document.getElementById('buttonWork').style.display = "block";
                 document.getElementById('buttonBreak').style.display = "block";
                 document.getElementById('buttonLongBreak').style.display = "block";
+                workDisplay.style.display = "block";
+                breakDisplay.style.display = "block";
+                longBreakDisplay.style.display = "block";
                 document.getElementById('endTimer').style.display = "none";
                 document.getElementById('container').style.backgroundColor = "#333333";
 
@@ -126,6 +149,9 @@
               document.getElementById('buttonWork').style.display = "none";
               document.getElementById('buttonBreak').style.display = "none";
               document.getElementById('buttonLongBreak').style.display = "none";
+              workDisplay.style.display = "none";
+                breakDisplay.style.display = "none";
+                longBreakDisplay.style.display = "none";
               document.getElementById('endTimer').style.display = "block";
             }
 
@@ -137,6 +163,9 @@
 
             minutes = 25;
             seconds = 0;
+
+            workCount++;
+            workDisplay.innerHTML = workCount
 
             document.getElementById('startTimer').style.display = 'none';
             time.style.display = 'block';
@@ -151,6 +180,9 @@
         minutes = 5;
         seconds = 0;
 
+        breakCount++;
+        breakDisplay.innerHTML = breakCount
+      
         document.getElementById('startTimer').style.display = 'none';
         time.style.display = 'block';
 
@@ -165,6 +197,9 @@
 
           minutes = 15;
           seconds = 0;
+
+          longBreakCount++;
+          longBreakDisplay.innerHTML = longBreakCount
 
           document.getElementById('startTimer').style.display = 'none';
           time.style.display = 'block';
