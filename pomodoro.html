@@ -39,7 +39,7 @@
           width: 16vw;
           margin: 2%;
           border: 0;
-          border-radius: 100px;
+          border-radius: 5%;
           background-color: #f0f6fc; 
           font-size: 1.5vw;
           font-weight: bold;
@@ -65,7 +65,21 @@
           font-weight: bold;
           margin: auto;
         }
-        
+        #halfContainer {
+          display:flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: auto;
+        }
+        .halfButton {
+          height: 8vh;
+          width: 8vw;
+          font-size: 1.3vw;
+        }
+        #resume, #skip {
+          display: none;
+        }
     </style>
   </head>
   <body>
@@ -82,15 +96,17 @@
       </div>
        <p class="timer" id="timer">25:00</p>
        <p class="timer" id="startTimer">25:00</p>
-       <button id="endTimer" onclick = "endTimer()">End Timer</button>
+       <div id="halfContainer">
+          <button id="endTimer" onclick = "pause()">Pause</button>
+          <button class="halfButton" id="resume" onclick="resume()">Resume</button>
+          <button class="halfButton" id="skip" onclick="endTimer()">Skip</button>
+       </div>
     </div>
 
     <script>
 
       let minutes = 25;
-
       let seconds = 0;
-
       let zero = '0'; 
 
       let workCount = 0;
@@ -211,11 +227,24 @@
 
           }
 
+          pause = () => {
+
+            clearTimeout(i);
+
+            document.getElementById('endTimer').style.display = "none";
+            document.getElementById('resume').style.display="block";
+            document.getElementById('skip').style.display="block";
+
+          }
+
           endTimer = () => {
+
             document.getElementById('endTimer').style.display = "none";
             document.getElementById('buttonWork').style.display = "block";
             document.getElementById('buttonBreak').style.display = "block";
             document.getElementById('buttonLongBreak').style.display = "block";
+            document.getElementById('resume').style.display="none";
+            document.getElementById('skip').style.display="none";
             document.getElementById('container').style.backgroundColor = "#333333";
 
             document.getElementById('timer').value = "00:00";
@@ -224,8 +253,19 @@
               seconds = 00;
               time.innerHTML = minutes + ":" + seconds;
 
+              var i=setInterval(count,1000); 
+            
           }
         
+          resume = () => {
+            var i=setInterval(count,1000); 
+
+            document.getElementById('endTimer').style.display = "block";
+            document.getElementById('resume').style.display="none";
+            document.getElementById('skip').style.display="none";
+
+          }
+
     </script>
   </body>
 </html>
