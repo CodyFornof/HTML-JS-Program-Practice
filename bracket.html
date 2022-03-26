@@ -15,9 +15,12 @@
     <title>Playoff Bracket</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://www.pngfind.com/pngs/m/169-1695521_kisspng-computer-icons-check-mark-presentation-symbol-ok.png"/>
     <style>
+      body {
+        position: flex;
+      }
         #container {
-            height: 90vh;
-            width: 90vw;
+            height: 500px;
+            width: 1000px;
             background-color: #292929;
             display:flex;
             flex-direction: row;
@@ -25,108 +28,72 @@
             align-items: center;
             margin: auto;
         }
-        #roundOneContainer {
-            height: 80vh;
-            width: 10vw;
-            display:flex;
-            flex-direction: column;
-            justify-content: center;
-            margin: auto;
-        }
-        #roundTwoContainer {
-            height: 80vh;
-            width: 10vw;
-            display:flex;
-            flex-direction: column;
-            justify-content: center;
-            margin: auto;
-        }
-        #confChamp {
-            height: 80vh;
-            width: 10vw;
-            margin: auto;
-            display:flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        #champ {
-            height: 10vh;
-            width: 10vw;
-            margin: auto;
-        }
-        #game {
-          height: 8vh;
-          width: 10vw;
+        #round {
+          width: 120px;
           background-color: white;
-          border: 2px solid black;
+          display:flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
           margin: auto;
         }
-
+        #teamContainer{
+          width: 100px;
+          height: 35px;
+          background-color: blue;
+          display:flex;
+          flex-direction: row;
+          margin: auto;
+          border: 1px solid black;
+        }
+        #team {
+          width: 75px;
+          height: 35px;
+          font-size: 25px;
+          color: white;
+          font-family: arial;
+          text-align: center;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+        }
+        #seed {
+          width: 25px;
+          height: 35px;
+          background-color: white;
+          font-size: 25px;
+          font-weight: bold;
+          font-family: arial;
+          color: #333;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+        }
+        #matchup {
+          height: 90px;
+          display:flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
     </style>
   </head>
 <body>
     <div id="container">
-        <div id="roundOneContainer">
-          <div id="game">
+      <div id="round" style="height: 250px">
+        <div id="matchup">
+            <div id="teamContainer">
+              <div id="team" style="background-color: #009EFF">PHI</div>
+              <div id="seed">1</div>
+            </div>
 
-          </div>
-          <div id="game">
-            
-          </div>
-          <div id="game">
-            
-          </div>
-          <div id="game">
-            
-          </div>
-        </div>
-        <div id="roundTwoContainer">
-          <div id="game">
-            
-          </div>
-          <div id="game">
-            
-          </div>
-        </div>
-        <div id="confChamp">
-            <div id="game">
-            
+            <div id="teamContainer">
+              <div id="team" style="background-color: #FF5900">NYK</div>
+              <div id="seed">4</div>
             </div>
         </div>
-        <div id="champ">
-          <div id="game">
-            
-          </div>
-        </div>
-        <div id="confChamp">
-          <div id="game">
-            
-          </div>
-        </div>
-        <div id="roundTwoContainer">
-          <div id="game">
-            
-          </div>
-          <div id="game">
-            
-          </div>
-        </div>
-        <div id="roundOneContainer">
-          <div id="game">
-
-          </div>
-          <div id="game">
-            
-          </div>
-          <div id="game">
-            
-          </div>
-          <div id="game">
-            
-          </div>
-        </div>
+      </div>
     </div>
-
 
     <script>
 
