@@ -45,29 +45,19 @@
 
     <div id='container'>
         <p id="result"></p>
-        <button id="button" onclick="shot()">Shoot</button>
+        <button id="button" onclick="minus()">Minus</button>
     </div>
 
     <script>
         
-        let result = '';
+        num = 100;
 
-        let resultDisplay = document.getElementById('result');
+        let result = document.getElementById('result');
 
-        shot = () => {
-            let random = Math.floor(Math.random() * 100)
+        minus = () => {
+          num = num - 1;
 
-            console.log(random);
-
-            if(random < 50){
-                resultDisplay.innerHTML = 'Miss';
-
-                resultDisplay.style.color = 'red'
-            }else{
-                resultDisplay.innerHTML = 'Make';
-
-                resultDisplay.style.color = 'green'
-            }
+          result.innerHTML = num
         }
 
     </script>
