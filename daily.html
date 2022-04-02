@@ -34,7 +34,7 @@
         #button {
             height: 10vh;
             width: 10vw;
-            background-color: blue;
+            background-color: #333;
             margin: auto;
             font-size: 2vw;
             color: white;
@@ -45,20 +45,48 @@
 
     <div id='container'>
         <p id="result"></p>
-        <button id="button" onclick="minus()">Minus</button>
+        <button id="button" onclick="change()">Change</button>
     </div>
 
     <script>
         
-        num = 100;
+      let result = document.getElementById('result');
 
-        let result = document.getElementById('result');
+      let container = document.getElementById('container')
 
-        minus = () => {
-          num = num - 1;
+      mode = 'R';
 
-          result.innerHTML = num
+      change = () => {
+        if(mode === 'R'){
+          mode = 'G';
+
+          result.innerHTML = mode
+
+          container.style.backgroundColor = 'green';
+          console.log(mode)
+        }else if(mode === 'G'){
+          mode = 'B';
+
+          result.innerHTML = mode
+
+          container.style.backgroundColor = 'Blue';
+          console.log(mode)
+        }else if(mode === 'B'){
+          mode = 'R';
+
+          result.innerHTML = mode
+
+          container.style.backgroundColor = 'Red';
+          console.log(mode)
+        }else{
+          mode = 'Error'
+
+          result.innerHTML = mode
+
+          container.style.backgroundColor = '#333333';
+          console.log(mode)
         }
+      }
 
     </script>
   </body>
