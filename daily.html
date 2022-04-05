@@ -44,49 +44,29 @@
   <body>
 
     <div id='container'>
-        <p id="result"></p>
-        <button id="button" onclick="change()">Change</button>
+        <p id="result">Password</p>
+        <button id="button" onclick="generate()">Generate</button>
     </div>
 
     <script>
         
-      let result = document.getElementById('result');
+     let result = document.getElementById('result')
 
-      let container = document.getElementById('container')
+     let chars = 'QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890!@#$%^&*-'
 
-      mode = 'R';
+     generate = () => {
 
-      change = () => {
-        if(mode === 'R'){
-          mode = 'G';
+      let password = ''
 
-          result.innerHTML = mode
+      for(let i = 0; i <= 8; i++){
+        let randomNumber = Math.floor(Math.random() * chars.length);
 
-          container.style.backgroundColor = 'green';
-          console.log(mode)
-        }else if(mode === 'G'){
-          mode = 'B';
-
-          result.innerHTML = mode
-
-          container.style.backgroundColor = 'Blue';
-          console.log(mode)
-        }else if(mode === 'B'){
-          mode = 'R';
-
-          result.innerHTML = mode
-
-          container.style.backgroundColor = 'Red';
-          console.log(mode)
-        }else{
-          mode = 'Error'
-
-          result.innerHTML = mode
-
-          container.style.backgroundColor = '#333333';
-          console.log(mode)
-        }
+        password += chars.substring(randomNumber, randomNumber + 1);
       }
+
+      result.innerHTML = password;
+
+     }
 
     </script>
   </body>
